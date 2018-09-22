@@ -1,0 +1,7 @@
+quiz-zone database
+create table Admin_login(Aid int primary key , EmailId varchar(20),Password varchar(20));
+create table teacher_login(Tid int primary key AUTO_INCREMENT,Name varchar(20),EmailId varchar(20),Password varchar(20));
+create table student_login(Sid int primary key AUTO_INCREMENT,Class varchar(3), Rollno int,Name varchar(20), EmailId varchar(20),Password varchar(20) );
+create table subject_assigned(Id int PRIMARY key AUTO_INCREMENT, Class varchar(3),Subject varchar(10), Teacher_id int);
+
+	
