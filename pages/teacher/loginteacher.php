@@ -11,7 +11,7 @@
 	<div id="content"> 
 		<div class="header">Teacher Login</div>
 		<div class="form">
-			<form action="loginteacher.php" method="post">
+			<form action="" method="post">
 				<div id="emailid">
 					<label>Email-id:  </label>
 					<input type="email" name="email"><br>
