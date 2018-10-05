@@ -25,6 +25,7 @@
 		$id = $data[0];
 		// Updating table with tablename in table
 		$tablename = $class."_".$subject."_".$id;
+		setcookie('tablename',$tablename,time() +86400, '/');
 		$sql = "Update $class set Tablename = '$tablename' where Id = $id";
 		mysqli_query($conn,$sql);
 

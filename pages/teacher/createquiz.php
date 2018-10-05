@@ -64,24 +64,24 @@ input[type="text"],{
 				
 			</aside>
 			<section>
-				<form action="" method="post">
+				<form action="../../includes/addquestions.php" method="post">
 				<div id="que">
 					<h2>Enter Question:- </h2>
 					<div >
-						<textarea  name="Questions" id="questions"></textarea>
+						<textarea  name="question" id="questions"></textarea>
 					</div>
 					<div id="choice">
-						<input type="radio" name="option" value="o1">
+						<input type="radio" name="option" value="a">
 						<input type="text" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-						<input type="radio" name="option" value="o1">
+						<input type="radio" name="option" value="b">
 						<input type="text" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-						<input type="radio" name="option" value="o1">
+						<input type="radio" name="option" value="c">
 						<input type="text" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-						<input type="radio" name="option" value="o1">
+						<input type="radio" name="option" value="d">
 						<input type="text" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
 					</div>
 					<div>
-						<button id="addqbtn" style="background-color:#123456;color:white">Add Question</button>
+						<input type="submit" name="addquestion" value="Add Question" id="addqbtn" style="background-color:#123456;color:white;font-size: 16px">
 						<button id="resetbtn" style="background-color:#123456;color:white">Reset</button>
 						<button id="finishbtn" style="background-color:#123456;color:white">Finish</button>
 					</div>
