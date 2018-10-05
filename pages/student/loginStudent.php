@@ -5,6 +5,7 @@
 <html>
 <head>
 	<title>QuizZone | Teacher Login</title>
+	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="../styles/login.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
 				<div id="emailid">
 					<label>Email-id:  </label>
 					<input type="email" name="email"><br>
-				</div>
+				
 				<div id="pass">
 					<label>Password:</label>
 					<input type="password" name="password"><br>

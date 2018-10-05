@@ -12,8 +12,9 @@ body{
     margin:0 auto;
 }
 #content div{
-    background: #720245;
+    background: #fff;
     padding:60px;
+    
 }
 .main{
     grid-column: 2 / 3;

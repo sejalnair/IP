@@ -1,8 +1,13 @@
+*{
+	box-sizing: content-box;
+}
 body{
 	color:#fff;
 	text-align: center;
 	font-family: Arial;
 	margin-top:200px;
+	min-height: 100%;
+	
 }
 #content{
 	display:grid;
@@ -11,22 +16,29 @@ body{
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: repeat(2,1fr);
 	grid-row-gap: 0.5px;
+	border:solid #720245;
+	width:40%;
+	margin-left:400px;
+	border-radius: 20px;
 
 	
 }
 #content div{
-	background: #720245;
+	margin-top: 10px;
 	padding:30px;
+	
 }
 .header{
-	grid-column: 2 / 3;
+	background: #720245;
+	/* grid-column: 2 / 3; */
 	align-items: end;
 	font-size: 30px;
 	font-weight: bold;
-	padding:10px;
-	border-radius: 20px;
+	border-radius: 17px; 
+	width:100%;
 }
 .form{
+	
 	grid-column: 2 / 3;
 	border-radius: 20px;
 }
@@ -35,7 +47,9 @@ body{
 	grid-template-columns: repeat(1,1fr)
 }
 label {
+	color:black;
 	font-size:20px;
+
 }
 input{
 	font-size:20px;
@@ -46,16 +60,17 @@ input{
 	width:200px;
 }
 button{
-    background-color: #ad9c3a;
+    background-color: #720245;
     border: none;
-    color: white;
+     color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     border-radius: 20px;
-    border: 2px solid #fff; 
+	border: 2px solid #fff; 
+	
 }
 button:hover {
     background-color: #f7dc45;
@@ -64,4 +79,15 @@ button:hover {
 }
 button:active { 
     background-color: #4CAF50;
+}
+#text {
+	
+	color:white;
+	font-size:28px;
+	font-style: italic;
+
+
+}
+#emailid{
+	margin-left:10px;
 }

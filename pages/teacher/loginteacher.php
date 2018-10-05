@@ -8,8 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="../styles/login.css">
 </head>
 <body>
-	<div id="content"> 
-		<div class="header">Teacher Login</div>
+	<div id="content">
+		<div class="header" style="margin-top:unset;"><label id="text"style="padding-top:200px;">Teacher Login</label></div>
 		<div class="form">
 			<form action="" method="post">
 				<div id="emailid">
