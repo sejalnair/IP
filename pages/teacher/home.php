@@ -1,6 +1,6 @@
 <?php
     include '../../includes/teacherlogin.php';
-    include '../../includes/createquiz.php';
+    // include '../../includes/createquiz.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,6 +87,15 @@
             background-color: #ff9966;
          }
          #rndbtn{
+            width:18% ;
+            height:39%;
+            background-color:#123456;
+            color:white;
+            margin-left:300px;
+            margin-top:200px;
+            border-radius: 50%;
+            font-size: 16px;
+            border:0px;
 			-webkit-animation:zoom-in-out 5s ease-in-out 0s infinite normal;
 			-moz-animation:zoom-in-out 5s ease-in-out 0s infinite normal;
 			-ms-animation:zoom-in-out 5s ease-in-out 0s infinite normal;
@@ -105,9 +114,11 @@
 			100%{ -ms-transform: scale(1); transform: scale(1.5); }
         }
     </style>
+
 </head>
 
 <body>
+    <form action="../../includes/createquiz.php" method="post">
     <div id="content">
         <header > 
             <label>Name:  <?php echo $_SESSION['Name']?></label>
@@ -117,22 +128,21 @@
         <section>
             <h4>Class:</h4><br>
             <select id="classname" name="class" label="hello">
-                <option value="class">Class</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                <option value="d10">D10</option>
+                <option value="d15">D15</option>
+                <option value="d20">D20</option>
             </select>
             <h4>Subject:</h4><br>
             <br><select id="subject" name="subject">
-                <option value="subject">Subject</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                <option value="maths1">Maths-1</option>
+                <option value="ld">Logic Design</option>
+                <option value="dsa">DSA</option>
+                <option value="dbms">DBMS</option>
             </select>
             <h4>Time: </h4>
-            <input id="time" type="time" name="usr_time">
+            <input id="time" type="time" name="exam_time">
             <h4>Date: </h4>
-            <input id="date" type="date" name="bday">
+            <input id="date" type="date" name="exam_date">
         </section>
         <aside>
                 <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:15px;background-color:#123456;color:white;margin: 5px;" /> 
@@ -141,14 +151,16 @@
                 <input type="button" name="Sub4" value="History4" style="width:100% ;size: 30px;padding:15px;background-color: #123456;color:white;margin: 5px;" />
         </aside>
         <div>
-            <label style="color:#123456;">Title:..........................</label> 
+            <label style="color:#123456;">Title: <input type="text" name="title"> </label> 
            
-            <label style="color:#123456;float:right">Sub Title:......................</label> <br><br>
+            <label style="color:#123456;float:right">Sub Title: <input type="text" name="subtitle"></label> <br><br>
             
-            <input type="button" name="startqz" value="START QUIZ"id="rndbtn" style="width:18% ;height:39%;background-color:#123456;color:white;margin-left:300px;margin-top:200px;border-radius: 50%;font-size: 16px;border:0px;"/>
+            <input type="submit" onclick="createquiz()" value="CREATE QUIZ" name="createqz" id="rndbtn" >
+
         </div>
         <div style="grid-row:auto;"></div>
     </div>
+    </form>
 </body>
 
 </html>
