@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    display: block;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#lo{
+    height: 43px;
+}
+#logoutbtn{
+    float:right;
+    background: #720245;
+    color:white;
+    width: 150px;
+    border-radius: 25px;
+    margin-right: 110px;
+    padding:10px;
+    font-size: 16px;
+}
+.tablink {
+    background-color: #720245;
+    color: white;
+    float: left;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    padding: 23px 16px;
+    font-size: 20px;
+    width: 32.9%;
+    vertical-align: top;
+    
+}
+.tablink:hover {
+    background-color: #b00379;
+}
+.tabcontent {
+    display: none;
+    height: 100%;
+    padding-left: 300px;
+    padding-top: 50px;
+    width: 100%;
+}
+#ADDT{
+    padding-left: 530px;
+    padding-top: 80px;
+}
+form{
+    width: 100%;
+}
+label{
+    display: block;
+    color: #19010f;
+    margin-bottom:10px;
+}
+input ,select{
+    margin-right: 20px;
+    width:25%;
+    height: 36px;
+    padding: 5px;
+    color: #19010f;
+}
+select{
+    color:unset;
+}
+#submit,#reset{
+    background:#720245;
+    color:white;
+    padding: 10px;
+    font-size: 16px;
+    height:40px;
+    width: 130px;
+}
+
+
+
+
+

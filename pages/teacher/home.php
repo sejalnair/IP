@@ -7,6 +7,7 @@
 
 <head>
     <title>Quiz Zone (Teacher page)</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../styles/teacherHome.css"> -->
     <style>
         body{
             color:#fff;
@@ -24,12 +25,12 @@
          }
          #content header{
             padding:5px;
-            background-color:#123456;
+            background-color: #720245;
             grid-column: 1 / 4;
          }
          #content section{
             padding:30px;
-            background-color: #123456;
+            background-color: #720245;
             grid-column: 1 / 3;
             grid-row:2/7;
             display: flex;
@@ -56,7 +57,6 @@
          header > button {
             float:right;
             background-color: #eeee;
-            background-color:#ff9966; /* pink */
             border: none;
             color: white;
             padding: 8px 10px;
@@ -70,21 +70,25 @@
            margin:10px;
          }
         button:hover {
-            background-color: #444; /* Green */
+            background-color: #eee; /* Green */
             color: white;
         }
         button:active { 
-            background-color: #4CAF22;
+            background-color: #eee;
         }
          section > select ,section > input {
-            padding: 8px 10px;
+            padding: 2px 10px;
             text-align: center;
             text-decoration: none;
             font-size: 16px;
             border-radius: 20px;
             border: 2px solid #fff; 
-            width:180px;
-            background-color: #ff9966;
+            width:190px;
+            background-color: #eee;
+            margin-right:15px;
+         }
+         section>h4{
+             margin:20px;
          }
          #rndbtn{
             width:18% ;
@@ -145,12 +149,13 @@
             <input id="date" type="date" name="exam_date">
         </section>
         <aside>
-                <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:15px;background-color:#123456;color:white;margin: 5px;" /> 
-                <input type="button" name="Sub2" value="History2" style="width:100% ;size: 30px;padding:15px;background-color:#123456;color:white; margin: 5px;" />
-                <input type="button" name="Sub3" value="History3" style="width:100%;size: 30x;padding:15px;background-color: #123456;color:white;margin: 5px;" />
-                <input type="button" name="Sub4" value="History4" style="width:100% ;size: 30px;padding:15px;background-color: #123456;color:white;margin: 5px;" />
+                <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:20px;background-color:#720245;color:white;margin: 5px;" /> 
+                <input type="button" name="Sub2" value="History2" style="width:100% ;size: 30px;padding:20px;background-color:#720245;color:white; margin: 5px;" />
+                <input type="button" name="Sub3" value="History3" style="width:100%;size: 30x;padding:20px;background-color: #720245;color:white;margin: 5px;" />
+                <input type="button" name="Sub4" value="History4" style="width:100% ;size: 30pxs;padding:20px;background-color: #720245;color:white;margin: 5px;" />
         </aside>
         <div>
+
             <label style="color:#123456;">Title: <input type="text" name="title"> </label> 
            
             <label style="color:#123456;float:right">Sub Title: <input type="text" name="subtitle"></label> <br><br>
