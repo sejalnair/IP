@@ -21,7 +21,18 @@
         #choice{
 	        padding:20px;
         }
-    </style>
+        #btn {
+            background-color: white; 
+            color: black; 
+            border: 2px solid #97025b;
+            font-size:20px
+        }
+
+        #btn:hover {
+            background-color: #97025b;
+            color: white;
+        }
+            </style>
     <?php
         include "../../includes/dbh.inc.php";
         session_start();
@@ -44,7 +55,7 @@
     
     <div id="edit">
     <h1>Edit Question No: <?php $questno = $_COOKIE['questno']; echo $questno;?></h1>
-    <form action="" method="post">
+    <form action="../../includes/questionupdate.php" method="post">
     <textarea  name="question" id="txtarea"></textarea>
     <div id="choice">
         <input type="radio" id="ck1" name="option" value="a" >
@@ -57,7 +68,8 @@
         <input type="text" id="ot4" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
     </div>
     <div>
-        <input type="submit" name="addquestion" value="Add Question" id="addqbtn" style="background-color:#123456;color:white;font-size: 16px">
+        <input type="submit" name="updatequestion" value="Update Question" id="btn" >
+        <input type="submit" name="back" value="Go Back" id="btn" >
     </div>
     </form>
     </div>

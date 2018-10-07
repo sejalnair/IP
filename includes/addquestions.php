@@ -27,4 +27,8 @@
         setcookie('tablename',null, -1, '/');
         header('Location: ../pages/teacher/home.php');
     }
+    if(isset($_POST['home'])){
+        $sql  = "drop table $tablename";
+        header('Location: ../pages/teacher/home.php');
+    }
 ?>
