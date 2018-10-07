@@ -28,7 +28,14 @@
         header('Location: ../pages/teacher/home.php');
     }
     if(isset($_POST['home'])){
-        $sql  = "drop table $tablename";
+        $tablename = $_COOKIE['tablename'];
+        $sql = "drop table $tablename;";
+        mysqli_query($conn,$sql);
+
+        $class = $_COOKIE['class'] ;
+        $id= $_COOKIE['id'] ;
+        $sql = "delete from $class where Id = $id";
+        mysqli_query($conn,$sql);
         header('Location: ../pages/teacher/home.php');
     }
 ?>
