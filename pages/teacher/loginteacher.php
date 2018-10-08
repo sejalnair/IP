@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="content">
-		<div class="header" style="margin-top:unset;"><label id="text"style="padding-top:200px;">Teacher Login</label></div>
+		<div class="header" style="margin-top:unset;"><label id="text">Teacher Login</label></div>
 		<div class="form">
 			<form action="loginteacher.php" method="post">
 				<div id="emailid">

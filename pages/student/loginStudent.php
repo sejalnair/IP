@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="content"> 
-		<div class="header">Student Login</div>
+		<div class="header" style="margin-top:unset ;font-style:italic">Student Login</div>
 
 		<div class="form">
 			<form action="loginStudent.php" method="post">
@@ -23,7 +23,7 @@
 					<input type="password" name="password"><br>
 				</div>
 				<div id="submit">
-					<button type="submit" name="submit">Submit</button>
+					<button type="submit" name="submit" style="color:white">Submit</button>
 				</div>
 			</form>	
 		</div>

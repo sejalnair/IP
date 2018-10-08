@@ -1,6 +1,9 @@
 <?php
 	include '../../includes/studentlogin.php';
+	include '../../includes/crtquiz.php';
+
 ?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
@@ -44,13 +47,13 @@
 	</style>
 </head>
 <body>
-		
+		<form  action="../../includes/crtquiz.php" method="post">
 		<header>
 			<div style="width:100%;height:100px;background-color: #eeee">
 				<label>Name:</label>
-				<input type="text" name="name" />
+				<input type="text" name="name" value="<?php echo $_SESSION['Name'];?>">
 				<label>Class:</label>
-				<input type="text" name="name" />
+				<input type="text"name="class" value="<?php echo $_SESSION['Class'];?>">
 				<input type="button" name="pswd" value="Change_password" class="btn1" style="size: 10px;color:white" />
 				<input type="button" name="logout" value="Logout" class="btn1" style="size: 10px;color:white" />
 
@@ -67,10 +70,13 @@
 	<section >
 		<div style="width:60%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 " class="div-animate">
 			<h1 style="margin-left:100px;">QUIZ TiTLE:</h1>
+			<label><?php if(isset($SESSION['Title'])){ echo $_SESSION['Title']; }?></label>
 			<h2 style="margin-left:100px;">Quiz Sub TiTLE:</h2>
-			<input type="button" name="startqz" value="START QUIZ" style="width:15% ;height:30%;background-color:#123456;color:white;margin-left: 380px;margin-top:200px;border-radius: 50%;font-size: 16px;border:0px;"/>
+			<label><?php if(isset($SESSION['Subtitle'])){ echo $_SESSION['Subtitle']; }?></label>
+			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/quiz.php';" style="width:15% ;height:30%;background-color:#123456;color:white;margin-left: 380px;margin-top:200px;border-radius: 50%;font-size: 16px;border:0px;">
 			
 	</section>
+	</form>
 	<!-- #1CFBB1 -->
 </body>
 </html>

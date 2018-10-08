@@ -24,7 +24,6 @@ body{
 	
 }
 #content div{
-	margin-top: 10px;
 	padding:30px;
 	
 }
@@ -73,7 +72,7 @@ button{
 	
 }
 button:hover {
-    background-color: #f7dc45;
+    background-color: #49f852;
     color: white;
     cursor: pointer;
 }
