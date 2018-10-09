@@ -1,6 +1,10 @@
 <?php
 	include '../../includes/studentlogin.php';
+	
+	include "../../includes/dbh.inc.php";
+
 ?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
@@ -13,9 +17,15 @@
 			background-color: #123456;
 			float: right;
 			width: 10%;
-			padding: 5px;
+			padding: 15px;
 			margin-right: 20px;
+			border:unset;
+			border-radius:20px;
+			
 
+		}
+		.subbtn{
+			/* display:none; */
 		}
 		.heading{
 			font-family: "Times New Roman", Times, serif;
@@ -44,33 +54,35 @@
 	</style>
 </head>
 <body>
-		
+		<form  action="../../includes/crtquiz.php" method="post">
 		<header>
-			<div style="width:100%;height:100px;background-color: #eeee">
+			<div style="width:100%;height:100px;background-color: #eeee;font-size:30px;">
 				<label>Name:</label>
-				<input type="text" name="name" />
-				<label>Class:</label>
-				<input type="text" name="name" />
+				<label><?php echo $_SESSION['Name'];?></label>
+				<label style="margin-left:50px;">Class:</label>
+				<label><?php echo $_SESSION['Class'];?></label>
 				<input type="button" name="pswd" value="Change_password" class="btn1" style="size: 10px;color:white" />
 				<input type="button" name="logout" value="Logout" class="btn1" style="size: 10px;color:white" />
 
 			</div>
 		</header>
-		<div style="width:15%;margin-top:70px;float:left;">
-			  <input type="button" name="Sub1" value="Subject1" style="width:100% ; size: 50px;padding:25px;background-color:#123456;color:white" /> 
-			<input type="button" name="Sub2" value="Subject2" style="width:100% ;size: 50px;padding:25px;background-color:#123456;color:white " />
-			<input type="button" name="Sub3" value="Subject3" style="width:100%;size: 50px;padding:25px;background-color: #123456;color:white" />
-			<input type="button" name="Sub4" value="Subject4" style="width:100% ;size: 50px;padding:25px;background-color: #123456;color:white" />
+		<div style="width:15%;margin-top:70px;float:left">
+			  <input class="subtn" type="button" name="Sub1" value="Subject1" style="width:100% ; size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px;" /> 
+			<input class="subtn" type="button" name="Sub2" value="Subject2" style="width:100% ;size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px ;" />
+			<input class="subtn" type="button" name="Sub3" value="Subject3" style="width:100%;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" />
+			<input class="subtn" type="button" name="Sub4" value="Subject4" style="width:100% ;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" />
 		
 		</div>
 	
 	<section >
 		<div style="width:60%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 " class="div-animate">
-			<h1 style="margin-left:100px;">QUIZ TiTLE:</h1>
-			<h2 style="margin-left:100px;">Quiz Sub TiTLE:</h2>
-			<input type="button" name="startqz" value="START QUIZ" style="width:15% ;height:30%;background-color:#123456;color:white;margin-left: 380px;margin-top:200px;border-radius: 50%;font-size: 16px;border:0px;"/>
+			
+			<?php
+			include '../../includes/crtquiz.php';
+			?>
+			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/quiz.php';" style="width:15% ;height:30%;background-color:#123456;color:white;margin-left: 380px;margin-top:200px;border-radius: 50%;font-size: 16px;border:0px;">
 			
 	</section>
-	<!-- #1CFBB1 -->
+	</form>
 </body>
 </html>

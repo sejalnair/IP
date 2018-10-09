@@ -29,7 +29,7 @@
             grid-column: 1 / 4;
          }
          #content section{
-            padding:30px;
+            padding:20px 10px 20px 10px;
             background-color: #720245;
             grid-column: 1 / 3;
             grid-row:2/7;
@@ -88,7 +88,7 @@
             margin-right:15px;
          }
          section>h4{
-             margin:20px;
+             margin:10px 10px;
          }
          #rndbtn{
             width:18% ;
@@ -125,28 +125,28 @@
     <form action="../../includes/createquiz.php" method="post">
     <div id="content">
         <header > 
-            <label>Name:  <?php echo $_SESSION['Name']?></label>
+            <label id="name">Name:  <?php echo $_SESSION['Name']?></label>
             <button >Change Password</button>
             <button>Logout</button>
         </header>
         <section>
             <h4>Class:</h4><br>
-            <select id="classname" name="class" label="hello">
+            <select id="classname" name="class" label="hello" style="width:fit-content">
                 <option value="d10">D10</option>
                 <option value="d15">D15</option>
                 <option value="d20">D20</option>
             </select>
             <h4>Subject:</h4><br>
-            <br><select id="subject" name="subject">
+            <br><select id="subject" name="subject" style="width:fit-content">
                 <option value="maths1">Maths-1</option>
                 <option value="ld">Logic Design</option>
                 <option value="dsa">DSA</option>
                 <option value="dbms">DBMS</option>
             </select>
             <h4>Time: </h4>
-            <input id="time" type="time" name="exam_time">
+            <input id="time" type="time" name="exam_time" style="width:fit-content">
             <h4>Date: </h4>
-            <input id="date" type="date" name="exam_date">
+            <input id="date" type="date" name="exam_date" style="width:fit-content">
         </section>
         <aside>
                 <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:20px;background-color:#720245;color:white;margin: 5px;" /> 
