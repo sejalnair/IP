@@ -8,10 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="../styles/login.css">
 </head>
 <body>
-	<div id="content"> 
-		<div class="header">Teacher Login</div>
+	<div id="content">
+		<div class="header" style="margin-top:unset;"><label id="text">Teacher Login</label></div>
 		<div class="form">
-			<form action="" method="post">
+			<form action="loginteacher.php" method="post">
 				<div id="emailid">
 					<label>Email-id:  </label>
 					<input type="email" name="email"><br>

@@ -1,3 +1,9 @@
+<?php
+	include '../../includes/addquestions.php';
+	
+
+?>
+
 <!Doctype html>
 <html>
 <head>
@@ -89,14 +95,21 @@ input[type="text"],{
                     <input type="button" name="startqz" value="20" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
 			</aside>
 			<section>
-				<form action="" method="post">
+				<form action="../../includes/addquestions.php" method="post">
+				<?PHP
+				if(isset($c)) {   $fetchqry = "SELECT * FROM 'd20_ld_4' where id='$c'"; 
+					$result=mysqli_query($con,$fetchqry);
+					$num=mysqli_num_rows($result);
+					$row = mysqli_fetch_array($result,MYSQLI_ASSOC); }
+			?>
 				<div id="que">
 					<h2> Question:- </h2>
 					<div >
-						<textarea  name="Questions" id="questions"></textarea>
+						<textarea  name="Questions" id="questions"><?php if(isset($post['question']) && !empty($_POST["question"])){ echo $_SESSION['question'];}else{echo 'empty';}?></textarea>
 					</div>
+
 					<div id="choice">
-						<input type="radio" name="option" value="o1">
+						<input type="radio" name="option" value="<?php echo $row['c1'];?>">&nbsp;<?php echo $row['c1']; ?>
 						<input type="text" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;margin-top:10px;"><br><br>
 						<input type="radio" name="option" value="o1">
 						<input type="text" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
