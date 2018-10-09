@@ -1,5 +1,5 @@
 <?php
-	include "./includes/adminlogin.php";
+	include "../includes/adminlogin.php";
 ?>
 <!DOCTYPE html>
 <html>

@@ -45,14 +45,16 @@ body{
 .tabcontent {
     display: none;
     height: 100%;
-    padding-left: 300px;
+    padding-left: 450px;
     padding-top: 50px;
     width: 100%;
+    font-size: 19px;
 }
-#ADDT{
+#ADDT, #ADDSub {
     padding-left: 530px;
     padding-top: 80px;
 }
+
 form{
     width: 100%;
 }

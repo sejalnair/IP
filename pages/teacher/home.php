@@ -29,7 +29,7 @@
             grid-column: 1 / 4;
          }
          #content section{
-            padding:20px 10px 20px 10px;
+            padding:30px;
             background-color: #720245;
             grid-column: 1 / 3;
             grid-row:2/7;
@@ -88,7 +88,7 @@
             margin-right:15px;
          }
          section>h4{
-             margin:10px 10px;
+             margin:20px;
          }
          #rndbtn{
             width:18% ;
@@ -157,28 +157,28 @@
     <form action="../../includes/createquiz.php" method="post">
     <div id="content">
         <header > 
-            <label id="name">Name:  <?php echo $_SESSION['Name']?></label>
+            <label>Name:  <?php echo $_SESSION['Name']?></label>
             <button >Change Password</button>
             <button>Logout</button>
         </header>
         <section>
             <h4>Class:</h4><br>
-            <select id="classname" name="class" label="hello" style="width:fit-content">
+            <select id="classname" name="class" label="hello">
                 <option value="d10">D10</option>
                 <option value="d15">D15</option>
                 <option value="d20">D20</option>
             </select>
             <h4>Subject:</h4><br>
-            <br><select id="subject" name="subject" style="width:fit-content">
+            <br><select id="subject" name="subject">
                 <option value="maths1">Maths-1</option>
                 <option value="ld">Logic Design</option>
                 <option value="dsa">DSA</option>
                 <option value="dbms">DBMS</option>
             </select>
             <h4>Time: </h4>
-            <input id="time" type="time" name="exam_time" style="width:fit-content">
+            <input id="time" type="time" name="exam_time">
             <h4>Date: </h4>
-            <input id="date" type="date" name="exam_date" style="width:fit-content">
+            <input id="date" type="date" name="exam_date">
         </section>
         <aside>
                 <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:20px;background-color:#720245;color:white;margin: 5px;" /> 
@@ -208,6 +208,7 @@
             
             if(mysqli_num_rows($result)>0){
                 while($row = mysqli_fetch_assoc($result)){
+                    print_r($row);
                     $tablename =  $row['quizname'];
                     if(strpos($tablename,'d10') !== false){
                         $sql = "select * from d10 where Tablename = '$tablename'";
