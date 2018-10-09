@@ -7,4 +7,4 @@ create table D15(Id int primary key AUTO_INCREMENT, Class varchar(3),Subject var
 create table D10(Id int primary key AUTO_INCREMENT, Class varchar(3),Subject varchar(10),Title varchar(20) ,Subtitle varchar(40),Examdate Date ,ExamTime Time, Tablename varchar(20));
 create table D20(Id int primary key AUTO_INCREMENT, Class varchar(3),Subject varchar(10),Title varchar(20) ,Subtitle varchar(40),Examdate Date ,ExamTime Time, Tablename varchar(20));
 
-	
+create table teacherquiz(Id int primary key AUTO_INCREMENT, Tid int,quizname varchar(20))

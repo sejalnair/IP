@@ -117,6 +117,38 @@
 			50%{ -ms-transform: scale(1.08); transform: scale(1.08); }
 			100%{ -ms-transform: scale(1); transform: scale(1.5); }
         }
+        #oldquiz{
+            width:100%;
+            display:inline-block;
+            text-align:center;
+        }
+        h2{
+            color:black;
+            padding:10px;
+            background-color:#f4511e;
+            font-size:30px;
+        }
+        #quizzes{
+            width:99%;
+            /* padding:5px;
+            text-align:center;
+            font-size:20px;
+            margin-bottom:5px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+            /* background-color: #4CAF50; Green */
+            /* background-color: #4CAF50; Green */
+            border: none;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        #quizzes:hover {background-color: #720245;}
     </style>
 
 </head>
@@ -154,18 +186,76 @@
                 <input type="button" name="Sub3" value="History3" style="width:100%;size: 30x;padding:20px;background-color: #720245;color:white;margin: 5px;" />
                 <input type="button" name="Sub4" value="History4" style="width:100% ;size: 30pxs;padding:20px;background-color: #720245;color:white;margin: 5px;" />
         </aside>
-        <div>
+        <div style="height:450px;">
 
-            <label style="color:#123456;">Title: <input type="text" name="title"> </label> 
+            <label style="color:#123456;">Title: <input type="text" style="width:100%;text-align:center" name="title"> </label> 
            
-            <label style="color:#123456;float:right">Sub Title: <input type="text" name="subtitle"></label> <br><br>
+            <label style="color:#123456;float:right">Sub Title: <input type="text" style="width:100%;" name="subtitle"></label> <br><br>
             
-            <input type="submit" onclick="createquiz()" value="CREATE QUIZ" name="createqz" id="rndbtn" >
+            <input type="submit" onclick="createquiz()" value="CREATE QUIZ" name="createqz" id="rndbtn" style="">
 
         </div>
-        <div style="grid-row:auto;"></div>
     </div>
     </form>
+    <div id='oldquiz'>
+        <h2>Previous Created Quiz</h1>
+        <form action="../../includes/display.php" method="post">
+        <?php 
+            include '../../includes/dbh.inc.php';
+            $tid =  $_SESSION['Tid'];
+            $sql  = "select * from teacherquiz where Tid = $tid order by Id desc;";
+            $result = mysqli_query($conn,$sql);
+            
+            if(mysqli_num_rows($result)>0){
+                while($row = mysqli_fetch_assoc($result)){
+                    $tablename =  $row['quizname'];
+                    if(strpos($tablename,'d10') !== false){
+                        $sql = "select * from d10 where Tablename = '$tablename'";
+                        $res = mysqli_query($conn,$sql);
+                        if(mysqli_num_rows($res)>0){
+                            while($rowi = mysqli_fetch_assoc($res)){
+                                $title = $rowi['Title'];
+                                $subtitle = $rowi['Subtitle'];
+                                $class = $rowi['Class'];
+                                $examdate = $rowi['Examdate'];
+                                echo "<button type='submit' name='quest' id='quizzes' value='$tablename'><pre><h3>Title: $title                   Subtitle: $subtitle
+                                    </h3><h4>      Class: $class                        Exam Date: $examdate</h4></button></pre>";
+                            }
+                        }
+                    }
+                    if(strpos($tablename,'d15') !== false){
+                        $sql = "select * from d15 where Tablename = '$tablename'";
+                        $res = mysqli_query($conn,$sql);
+                        if(mysqli_num_rows($res)>0){
+                            while($rowi = mysqli_fetch_assoc($res)){
+                                $title = $rowi['Title'];
+                                $subtitle = $rowi['Subtitle'];
+                                $class = $rowi['Class'];
+                                $examdate = $rowi['Examdate'];
+                                echo "<button type='submit' name='quest' id='quizzes' value='$tablename'><pre><h3>Title: $title                   Subtitle: $subtitle
+                                    </h3><h4>      Class: $class                        Exam Date: $examdate</h4></button></pre>";
+                            }
+                        }
+                    }
+                    if(strpos($tablename,'d20') !== false){
+                        $sql = "select * from d20 where Tablename = '$tablename'";
+                        $res = mysqli_query($conn,$sql);
+                        if(mysqli_num_rows($res)>0){
+                            while($rowi = mysqli_fetch_assoc($res)){
+                                $title = $rowi['Title'];
+                                $subtitle = $rowi['Subtitle'];
+                                $class = $rowi['Class'];
+                                $examdate = $rowi['Examdate'];
+                                echo "<button type='submit' name='quest' id='quizzes' value='$tablename'><pre><h3>Title: $title                   Subtitle: $subtitle
+                                    </h3><h4>      Class: $class                        Exam Date: $examdate</h4></button></pre>";
+                            }
+                        }
+                    }
+                }
+            }
+        ?>
+        </form>
+    </div>
 </body>
 
 </html>
