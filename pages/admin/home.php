@@ -22,7 +22,14 @@
 
     }
     // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").onclick();
+    window.onload = function () {
+        startTab();
+    };
+
+    function startTab() {
+        document.getElementById("defaultOpen").click();
+    }
+
 </script>
 </head>
 <body>
@@ -32,59 +39,77 @@
 <div class="btn-group">
     <button class="tablink" onclick="openPage('ADDT', this, '#97025b')"> Add Teacher</button>
     <button class="tablink" onclick="openPage('ADDstu', this, '#97025b')" id="defaultOpen"> Add Student</button>
-    <button class="tablink"> Add Subject</button>
+    <button class="tablink" onclick="openPage('ADDSub', this, '#97025b')"> Add Subject</button>
 </div>
 <div id="ADDT" class="tabcontent">
-    <form>
+    <form action="../../includes/admin/addt.php" method="POST" >
         <label>Name :</label>
-        <input type="text" placeholder="Name" style="width:370px">
+        <input type="text" placeholder="Name" name="name" style="width:370px">
         <br>
         <br>
         <label>Email ID :</label>
-        <input type="text" placeholder="Email" style="width:370px">
+        <input type="text" placeholder="Email" name="emailid" style="width:370px">
         <br>
         <br>
         <label>Password :</label>
-        <input type="text" style="width:370px">
+        <input type="text" style="width:370px" name="password" placeholder="Password">
         <br>
         <br>
         <input type="submit" value="Submit" id="submit">
-        <input type="reset" value="Reset" id="reset">
+        <button type="reset" value="Reset" id="reset">Reset</button>
     </form>
 </div>
 <div id="ADDstu" class="tabcontent">
-    <form>
+    <form action="../../includes/admin/addstu.php" method="POST" >
         <label>Name :</label>
-        <input type="text" placeholder="First name" > 
-        <input type="text" placeholder="Middle name">
-        <input type="text" placeholder="Last name">
+        <input type="text" placeholder="First name" name="fname"> 
+        <input type="text" placeholder="Last name" name="lname">
         <br>
         <br>
-        <label>Year :</label>
-        <select>
-            <option value="FirstYear">First Year</option>
-            <option value="SecondYear">Second Year</option>
-            <option value="ThirdYear">Third Year</option>
-            <option value="FourthYear">Fourth Year</option>
-        </select>
+        <label>Roll No. :</label>
+        <input type="number" placeholder="Roll No." name="rollno">
         <br>
         <br>
         <label>Class :</label>
-        <select>
-            <option value="1">D10</option>
+        <select  name="class">
+            <option value="D10">D10</option>
+            <option value="D15">D15</option>
+            <option value="D20">D20</option>
         </select>
         <br>
         <br>
         <label>Email ID :</label>
-        <input type="text" placeholder="Email" style="width:370px">
+        <input type="text" placeholder="Email" style="width:370px"  name="emailid">
         <br>
         <br>
         <label>Password :</label>
-        <input type="text" style="width:370px">
+        <input type="text" style="width:370px" name="password" placeholder="Password">
         <br>
         <br>
         <input type="submit" value="Submit" id="submit">
-        <input type="reset" value="Reset" id="reset">
+        <button type="reset" value="Reset" id="reset">Reset</button>
+    </form>
+</div>
+<div id="ADDSub" class="tabcontent">
+    <form action="../../includes/admin/addsub.php" method="POST">
+        <label>Subject :</label>
+        <input type="text" name="subject" placeholder="Subject Name" style="width:370px">
+        <br>
+        <br>
+        <label>Class :</label>
+        <select  name="class">
+            <option value="D10">D10</option>
+            <option value="D15">D15</option>
+            <option value="D20">D20</option>
+        </select>
+        <br>
+        <br>
+        <label>Teacher's Name :</label>
+        <input type="text" name="teacher" style="width:370px" placeholder="Teacher's Name">
+        <br>
+        <br>
+        <input type="submit" value="Submit" id="submit">
+        <button type="reset" value="Reset" id="reset">Reset</button>
     </form>
 </div>
 </body>
