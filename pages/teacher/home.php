@@ -208,6 +208,7 @@
             
             if(mysqli_num_rows($result)>0){
                 while($row = mysqli_fetch_assoc($result)){
+                    print_r($row);
                     $tablename =  $row['quizname'];
                     if(strpos($tablename,'d10') !== false){
                         $sql = "select * from d10 where Tablename = '$tablename'";
