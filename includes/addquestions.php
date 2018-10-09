@@ -18,6 +18,11 @@
 		header('Location: ../pages/teacher/createquiz.php');
     }
     if(isset($_POST['finish'])){
+        $tid = $_SESSION['Tid'];
+        $tablename =  $_COOKIE['tablename'];
+        $sql = "Insert into teacherquiz(Tid,quizname) values($tid,'$tablename');";
+        mysqli_query($conn,$sql);
+        
         setcookie('class',null, -1, '/');
 		setcookie('subject',null, -1, '/');
 		setcookie('time',null, -1, '/');
