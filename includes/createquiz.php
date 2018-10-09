@@ -23,6 +23,7 @@
 		$result= mysqli_query($conn,$sql);
 		$data = mysqli_fetch_array($result);
 		$id = $data[0];
+		setcookie('id',$id,time() +86400, '/');
 		// Updating table with tablename in table
 		$tablename = $class."_".$subject."_".$id;
 		setcookie('tablename',$tablename,time() +86400, '/');

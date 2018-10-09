@@ -12,8 +12,9 @@ body{
     margin:0 auto;
 }
 #content div{
-    background: #720245;
+    background: #fff;
     padding:60px;
+    
 }
 .main{
     grid-column: 2 / 3;
@@ -37,7 +38,7 @@ a{
     margin:30px;
 }
 a:hover {
-    background-color: #f7dc45; /* Green */
+    background-color: #86f745; /* Green */
     color: white;
     cursor: pointer;
 }
