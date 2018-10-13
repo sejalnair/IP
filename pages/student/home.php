@@ -75,12 +75,12 @@
 		</div>
 	
 	<section >
-		<div style="width:60%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 " class="div-animate">
+		<div style="width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 " class="div-animate">
 			
 			<?php
 			include '../../includes/crtquiz.php';
 			?>
-			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/quiz.php';" style="width:15% ;height:30%;background-color:#123456;color:white;margin-left: 380px;margin-top:200px;border-radius: 50%;font-size: 16px;border:0px;">
+			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/quiz.php';" style="width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;">
 			
 	</section>
 	</form>

@@ -73,10 +73,10 @@ input[type="text"],{
             </div>
         </header>
 			<aside >
-                    <input type="button" name="startqz" value="1" style="width:14% ;height:7%;margin:10px;background-color:blue;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="2" style="width:14% ;height:7%;margin:10px;background-color:yellow;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="3" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="4" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
+                    <input type="button" name="startqz" value="1" style="width:14% ;height:7%;margin:10px ;background-color:blue;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
+                    <input type="button" name="startqz" value="2" style="width:14% ;height:7%;margin:10px ;background-color:yellow;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
+                    <input type="button" name="startqz" value="3" style="width:14% ;height:7%;margin:10px ;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
+                    <input type="button" name="startqz" value="4" style="width:14% ;height:7%;margin:10px ;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
                     <input type="button" name="startqz" value="5" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
                     <input type="button" name="startqz" value="6" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
                     <input type="button" name="startqz" value="7" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
@@ -97,7 +97,7 @@ input[type="text"],{
 			<section>
 				<form action="../../includes/addquestions.php" method="post">
 				<?PHP
-				if(isset($c)) {   $fetchqry = "SELECT * FROM 'd20_ld_4' where id='$c'"; 
+				if(isset($c)) {   $fetchqry = "SELECT * FROM 'd15_maths1_1' where id='$c'"; 
 					$result=mysqli_query($con,$fetchqry);
 					$num=mysqli_num_rows($result);
 					$row = mysqli_fetch_array($result,MYSQLI_ASSOC); }
