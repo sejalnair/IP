@@ -93,30 +93,15 @@
          #rndbtn{
             width:18% ;
             height:39%;
-            background-color:#123456;
+            background-color:#720245;
             color:white;
-            margin-left:300px;
+            margin-left:200px;
             margin-top:200px;
             border-radius: 50%;
             font-size: 16px;
             border:0px;
-			-webkit-animation:zoom-in-out 5s ease-in-out 0s infinite normal;
-			-moz-animation:zoom-in-out 5s ease-in-out 0s infinite normal;
-			-ms-animation:zoom-in-out 5s ease-in-out 0s infinite normal;
-			animation:zoom-in-out 5s ease-in-out 0s infinite normal;
 			}
 
-		@-webkit-keyframes zoom-in-out {
-			0%{ -webkit-transform: scale(1); transform: scale(1.5); }
-			50%{ -webkit-transform: scale(1.08); transform: scale(1.08); }
-			100%{ -webkit-transform: scale(1); transform: scale(1.5); }
-			}
-
-		@keyframes zoom-in-out {
-			0%{ -ms-transform: scale(1); transform: scale(1.5); }
-			50%{ -ms-transform: scale(1.08); transform: scale(1.08); }
-			100%{ -ms-transform: scale(1); transform: scale(1.5); }
-        }
         #oldquiz{
             width:100%;
             display:inline-block;
@@ -192,7 +177,7 @@
            
             <label style="color:#123456;float:right">Sub Title: <input type="text" style="width:100%;" name="subtitle"></label> <br><br>
             
-            <input type="submit" onclick="createquiz()" value="CREATE QUIZ" name="createqz" id="rndbtn" style="">
+            <input type="submit" onclick="createquiz()" value="CREATE QUIZ" name="createqz" id="rndbtn">
 
         </div>
     </div>
