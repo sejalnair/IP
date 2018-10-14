@@ -1,6 +1,9 @@
 <?php
     include '../../includes/teacherlogin.php';
     // include '../../includes/createquiz.php';
+    if($_SESSION['Tid'] === null || $_SESSION['Name'] === null || $_SESSION['EmailId'] === null || $_SESSION['Password'] === null){
+        header('Location: ../forbidden.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -143,8 +146,9 @@
     <div id="content">
         <header > 
             <label>Name:  <?php echo $_SESSION['Name']?></label>
-            <button >Change Password</button>
-            <button>Logout</button>
+                    <button name='changepassword' >Change Password</button>
+                    <button name='logout' >Logout</button>
+                
         </header>
         <section>
             <h4>Class:</h4><br>
