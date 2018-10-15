@@ -6,7 +6,7 @@
 ?>
 
 <!DOCTYPE html>
-<!DOCTYPE html>
+
 <html>
 <head>
 	<title>Student Home Page</title>
@@ -67,22 +67,32 @@
 			</div>
 		</header>
 		<div style="width:15%;margin-top:70px;float:left">
-			<form method='post' action=''>
-			<input class="subtn" type="button" name="Sub1" value="Maths-1" style="width:100% ; font-size: 17px;padding:25px;background-color:#720245;color:white;border-radius:10px;margin-bottom:3px;" /> 
-			<input class="subtn" type="button" name="Sub2" value="Logic Design" style="width:100% ;font-size: 17px;padding:25px;background-color:#720245;color:white;border-radius:10px;margin-bottom:3px ;" />
-			<input class="subtn" type="button" name="Sub3" value="DSA" style="width:100%;font-size: 17px;padding:25px;background-color: #720245;color:white;border-radius:10px;margin-bottom:3px;" />
-			<input class="subtn" type="button" name="Sub4" value="DBMS " style="width:100% ;font-size: 17px;padding:25px;background-color: #720245;color:white;border-radius:10px;margin-bottom:3px;" />
-			</form>
+			<button class="subtn"  name="maths1" value="maths1" style="width:100% ; size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px;" >Maths 1</button> 
+			<button class="subtn"  name="dsa" value="dsa" style="width:100% ;size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px ;" >DSA</button>
+			<button class="subtn"  name="ld" value="ld" style="width:100%;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" >Logic Design</button>
+			<button class="subtn"  name="dbms" value="dbms" style="width:100% ;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" >DBMS</button>
+		
 		</div>
 	
 	<section >
-		<div style="width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 " class="div-animate">
-			
-			<?php
-			include '../../includes/crtquiz.php';
-			?>
-			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/questions.php';" style="width:13% ;height:32%;background-color:#720245;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;">
-			
+		<?php 
+			$title =  $_COOKIE['title'];
+			$subtitle = $_COOKIE['subtitle'];
+			if($title !== " "){
+				echo "<form method='post' action='../../includes/quiz.php'>";
+				echo "<div style='width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 ' class='div-animate'>";
+				echo "<br>";
+				echo "<label style='float: left;margin-left: 450px;font-size:22px;'>Title: $title </label><br>";
+				echo "<label style='float: left;margin-left: 450px;font-size:20px;'>Sub Title: $subtitle </label>";
+				echo "<input type='submit' name='startqz' value='START QUIZ'  style='width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'>";
+				echo "</div>";
+				echo "</form>";
+			}else{
+				echo "<div style='font-size:26px;'><br>
+				<center>No Quiz is Present</center></div>";
+			}					
+		?>
+		
 	</section>
 	</form>
 </body>

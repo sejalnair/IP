@@ -35,4 +35,9 @@
 		mysqli_query($conn,$sql);
 		header("Location: ../pages/teacher/createquiz.php");
 	}
+	if(isset($_POST['logout'])){
+		session_destroy();
+        header('Location: ../index.php');
+        exit;
+	}
 ?>

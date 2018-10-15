@@ -1,3 +1,10 @@
+<?php 
+	include "../../includes/dbh.inc.php";
+	session_start();
+	 if($_SESSION['Tid'] === null || $_SESSION['Name'] === null || $_SESSION['EmailId'] === null || $_SESSION['Password'] === null){
+        header('Location: ../forbidden.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +42,6 @@
             </style>
     <?php
         include "../../includes/dbh.inc.php";
-        session_start();
         $tablename = $_COOKIE['tablename'];
         $sql = "select * from $tablename where Question_no = $questno";
         $result= mysqli_query($conn,$sql);

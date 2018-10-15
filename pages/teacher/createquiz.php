@@ -1,4 +1,10 @@
-
+<?php 
+	include "../../includes/dbh.inc.php";
+	session_start();
+	 if($_SESSION['Tid'] === null || $_SESSION['Name'] === null || $_SESSION['EmailId'] === null || $_SESSION['Password'] === null){
+        header('Location: ../forbidden.php');
+    }
+?>
 <!Doctype html>
 <html>
 <head>
@@ -127,7 +133,6 @@ h1{
 			<form action="../../includes/update.php" method='get'>
 			<?php
 				include "../../includes/dbh.inc.php";
-				session_start();
 				$num = 0;
 				$tablename = $_COOKIE['tablename'];
 				$sql =  "Select * from $tablename;";
