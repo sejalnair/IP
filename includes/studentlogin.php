@@ -15,6 +15,7 @@
 					$_SESSION['Rollno'] = $row['Rollno'];
 					$_SESSION['Name'] = $row['Name'];
 					$_SESSION['EmailId'] = $row['EmailId'];
+					setcookie('class',$_SESSION['Class'],time() +86400, '/');
 					header("Location: ../student/home.php");
  				}
 			}else{
