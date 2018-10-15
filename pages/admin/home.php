@@ -35,7 +35,9 @@
 </head>
 <body>
 <div id="lo">
+    <form action="../../includes/admin/logout.php">
     <button id="logoutbtn">Logout</button>
+    </form>
 </div>
 <div class="btn-group">
     <button class="tablink" onclick="openPage('ADDT', this, '#97025b')"> Add Teacher</button>
