@@ -9,12 +9,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Students1stpage</title>
+	<title>Student Home Page</title>
 	<meta charset="utf-8"/>
 
 	<style type="text/css">
 		.btn1{
-			background-color: #123456;
+			background-color: #720245;
 			float: right;
 			width: 10%;
 			padding: 15px;
@@ -22,7 +22,6 @@
 			border:unset;
 			border-radius:20px;
 			
-
 		}
 		.subbtn{
 			/* display:none; */
@@ -56,7 +55,8 @@
 <body>
 		<form  action="../../includes/crtquiz.php" method="post">
 		<header>
-			<div style="width:100%;height:100px;background-color: #eeee;font-size:30px;">
+		<div style="height:10px"></div>
+			<div style="width:100%;height:60px;background-color: #eeee;font-size:30px;">
 				<label>Name:</label>
 				<label><?php echo $_SESSION['Name'];?></label>
 				<label style="margin-left:50px;">Class:</label>
@@ -67,11 +67,12 @@
 			</div>
 		</header>
 		<div style="width:15%;margin-top:70px;float:left">
-			  <input class="subtn" type="button" name="Sub1" value="Subject1" style="width:100% ; size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px;" /> 
-			<input class="subtn" type="button" name="Sub2" value="Subject2" style="width:100% ;size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px ;" />
-			<input class="subtn" type="button" name="Sub3" value="Subject3" style="width:100%;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" />
-			<input class="subtn" type="button" name="Sub4" value="Subject4" style="width:100% ;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" />
-		
+			<form method='post' action=''>
+			<input class="subtn" type="button" name="Sub1" value="Maths-1" style="width:100% ; font-size: 17px;padding:25px;background-color:#720245;color:white;border-radius:10px;margin-bottom:3px;" /> 
+			<input class="subtn" type="button" name="Sub2" value="Logic Design" style="width:100% ;font-size: 17px;padding:25px;background-color:#720245;color:white;border-radius:10px;margin-bottom:3px ;" />
+			<input class="subtn" type="button" name="Sub3" value="DSA" style="width:100%;font-size: 17px;padding:25px;background-color: #720245;color:white;border-radius:10px;margin-bottom:3px;" />
+			<input class="subtn" type="button" name="Sub4" value="DBMS " style="width:100% ;font-size: 17px;padding:25px;background-color: #720245;color:white;border-radius:10px;margin-bottom:3px;" />
+			</form>
 		</div>
 	
 	<section >
@@ -80,7 +81,7 @@
 			<?php
 			include '../../includes/crtquiz.php';
 			?>
-			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/quiz.php';" style="width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;">
+			<input type="button" name="startqz" value="START QUIZ" onclick="document.location.href ='http://localhost/Ip/pages/student/questions.php';" style="width:13% ;height:32%;background-color:#720245;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;">
 			
 	</section>
 	</form>
