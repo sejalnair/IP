@@ -1,8 +1,24 @@
-<?php
-	include '../../includes/studentlogin.php';
-	
-	include "../../includes/dbh.inc.php";
-
+<?php 
+	session_start();
+	include '../../includes/dbh.inc.php';
+	$subject ='maths1';
+	$class  = $_SESSION['Class'];
+	$sql = "select * from $class where Subject= '$subject'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)>0 ){
+		while($row = mysqli_fetch_assoc($result)){
+			$a = $row['Tablename'];
+			$a1 = $row['Title'];
+			$a2 = $row['Subtitle'];
+			setcookie('examname',$a,time() +86400, '/');
+			setcookie('title',$a1,time() +86400, '/');
+			setcookie('subtitle',$a2,time() +86400, '/');
+		}
+	}else if(mysqli_num_rows($result) === 0 ) {
+		setcookie('examname'," ",time() +86400, '/');
+		setcookie('title'," ",time() +86400, '/');
+		setcookie('subtitle'," ",time() +86400, '/');
+	}
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +87,6 @@
 			<button class="subtn"  name="dsa" value="dsa" style="width:100% ;size: 50px;padding:25px;background-color:#123456;color:white;border-radius:10px;margin-bottom:3px ;" >DSA</button>
 			<button class="subtn"  name="ld" value="ld" style="width:100%;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" >Logic Design</button>
 			<button class="subtn"  name="dbms" value="dbms" style="width:100% ;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" >DBMS</button>
-		
 		</div>
 	
 	<section >
@@ -79,14 +94,12 @@
 			$title =  $_COOKIE['title'];
 			$subtitle = $_COOKIE['subtitle'];
 			if($title !== " "){
-				echo "<form method='post' action='../../includes/quiz.php'>";
 				echo "<div style='width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 ' class='div-animate'>";
 				echo "<br>";
 				echo "<label style='float: left;margin-left: 450px;font-size:22px;'>Title: $title </label><br>";
 				echo "<label style='float: left;margin-left: 450px;font-size:20px;'>Sub Title: $subtitle </label>";
-				echo "<input type='submit' name='startqz' value='START QUIZ'  style='width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'>";
+				echo "<input type='submit' name='startqz' value='START QUIZ'  style='width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'/>";
 				echo "</div>";
-				echo "</form>";
 			}else{
 				echo "<div style='font-size:26px;'><br>
 				<center>No Quiz is Present</center></div>";
