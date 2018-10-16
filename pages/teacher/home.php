@@ -8,6 +8,7 @@
 <head>
     <title>Quiz Zone (Teacher page)</title>
     <!-- <link rel="stylesheet" type="text/css" href="../styles/teacherHome.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body{
             color:#fff;
@@ -21,6 +22,7 @@
             margin:0 auto;
             grid-row-gap: 10px;
             grid-column-gap: 8px;
+            margin 0px auto;
 
          }
          #content header{
@@ -117,6 +119,21 @@
 			50%{ -ms-transform: scale(1.08); transform: scale(1.08); }
 			100%{ -ms-transform: scale(1); transform: scale(1.5); }
         }
+        @media screen and (max-width: 640px) {
+            #content{
+                width:100%;
+            }
+            #section{
+                flaot:left;
+                width:100%;
+            }
+            #aside{
+                grid-row:1/5;
+                float:left;
+                width:100%; 
+            }
+
+        }
     </style>
 
 </head>
@@ -129,7 +146,7 @@
             <button >Change Password</button>
             <button>Logout</button>
         </header>
-        <section>
+        <section id="section">
             <h4>Class:</h4><br>
             <select id="classname" name="class" label="hello" style="width:fit-content">
                 <option value="d10">D10</option>
@@ -148,7 +165,7 @@
             <h4>Date: </h4>
             <input id="date" type="date" name="exam_date" style="width:fit-content">
         </section>
-        <aside>
+        <aside id="aside">
                 <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:20px;background-color:#720245;color:white;margin: 5px;" /> 
                 <input type="button" name="Sub2" value="History2" style="width:100% ;size: 30px;padding:20px;background-color:#720245;color:white; margin: 5px;" />
                 <input type="button" name="Sub3" value="History3" style="width:100%;size: 30x;padding:20px;background-color: #720245;color:white;margin: 5px;" />
