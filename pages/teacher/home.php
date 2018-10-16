@@ -112,23 +112,6 @@
             display:inline-block;
             text-align:center;
         }
-<<<<<<< HEAD
-        @media screen and (max-width: 640px) {
-            #content{
-                width:100%;
-            }
-            #section{
-                flaot:left;
-                width:100%;
-            }
-            #aside{
-                grid-row:1/5;
-                float:left;
-                width:100%; 
-            }
-
-        }
-=======
         h2{
             color:black;
             padding:10px;
@@ -156,7 +139,6 @@
             cursor: pointer;
         }
         #quizzes:hover {background-color: #720245;}
->>>>>>> a8e331cc43605c9f5d7cb0b7c605799ec7398145
     </style>
 
 </head>

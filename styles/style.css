@@ -1,34 +1,37 @@
-body{
-    color:#fff;
-    text-align: center;
-    font-family: Arial;
+
+*{
+    overflow: hidden;;
+} 
+#header{
+    background-color: #f7eff0;
+
 }
-#content{
-    display:grid;
-    /*grid-template-columns: 33.3% 33.3% 33.3%;
-    grid-template-columns: 1fr 1fr 1fr ;*/
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4,minmax(200px,auto));
-    margin:0 auto;
+#img{
+    margin-left:30px;
+    float:left;
 }
-#content div{
-    background: #fff;
-    padding:60px;
-    
+#img2{
+    opacity: 0.1;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
 }
-.main{
-    grid-column: 2 / 3;
-    grid-row:2 / 4;
-    border-radius: 10px;
-}
-label{
-    font-size:30px;
+#nav{
+    float:right;
 }
 a{
+    padding:10px;
+    color:#1323f9;
+    /*text-decoration: none;*/
+    line-height: 80px;
+    margin-top: 100px;
+}
+a:hover{
+    color: #5bdee5;
+}
+#teacher{
     background-color: #ad9c3a; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -36,12 +39,40 @@ a{
     border-radius: 20px;
     border: 2px solid #fff; 
     margin:30px;
+    margin-left:40%;
+    margin-top:80px;
+    opacity:unset;
 }
-a:hover {
-    background-color: #86f745; /* Green */
+#student{
+    background-color: #ad9c3a; /* Green */
+    border: none;
     color: white;
-    cursor: pointer;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 2px solid #fff; 
+    margin:30px;
+    margin-left:40%;
+
+    opacity:unset;
+
 }
-a:active { 
-    background-color: #4CAF50;
+#section{
+    background-image: url("images/backgrnd.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    /* background-color:rgba(0,0,0,0.3); */
+    opacity: 0.2; 
+    filter: alpha(opacity=50); 
+    height:100%;
+    z-index:-1;
+    
+}
+#teacher ,#student{
+    z-index:2;
+    background-color:blue;
+    opacity:0.9;
 }
