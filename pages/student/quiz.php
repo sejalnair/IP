@@ -107,17 +107,17 @@ label{
 				$c2 = $data[3];
 				$c3 = $data[4];
 				$c4 = $data[5];
-				echo $question;
+				
 			?>
 			<form action="" method="post">
 			<div id="que">
 				<h2> Question:- <?php echo $questno;?></h2>
 				<div >
-					<label  name="Questions" id="question"></label>
+					<label  name="Questions" id="question"><?php echo $question;?></label>
 				</div>
 				<div id="choice">
 					<input type="radio" name="option" value="o1">
-					<label type="ot1" id="ot1" style="width: 200px; padding:8px; border:solid 2px #123456;margin-top:10px;">option 1</label>
+					<label type="ot1" id="ot1" style="width: 200px; padding:8px; border:solid 2px #123456;margin-top:10px;"></label>
 					<input type="radio" name="option" value="o2">
 					<label  name="ot2" id="ot2" style="width:200px; padding:8px; border:solid 2px #123456; margin-top:10px;"></label>
 					<input type="radio" name="option" value="o3">
