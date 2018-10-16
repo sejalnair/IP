@@ -55,8 +55,7 @@
 <body>
 		<form  action="../../includes/crtquiz.php" method="post">
 		<header>
-		<div style="height:10px"></div>
-			<div style="width:100%;height:60px;background-color: #eeee;font-size:30px;">
+			<div style="width:100%;height:60px;background-color: #eeee;font-size:30px; padding-top: 10px">
 				<label>Name:</label>
 				<label><?php echo $_SESSION['Name'];?></label>
 				<label style="margin-left:50px;">Class:</label>
@@ -75,24 +74,26 @@
 		</div>
 	
 	<section >
+	<div style='width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 ' class='div-animate'>
+				
 		<?php 
 			$title =  $_COOKIE['title'];
 			$subtitle = $_COOKIE['subtitle'];
 			if($title !== " "){
-				echo "<form method='post' action='../../includes/quiz.php'>";
-				echo "<div style='width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 ' class='div-animate'>";
 				echo "<br>";
-				echo "<label style='float: left;margin-left: 450px;font-size:22px;'>Title: $title </label><br>";
-				echo "<label style='float: left;margin-left: 450px;font-size:20px;'>Sub Title: $subtitle </label>";
-				echo "<input type='submit' name='startqz' value='START QUIZ'  style='width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'>";
-				echo "</div>";
-				echo "</form>";
+				echo "<label style='float: left;margin-left: 480px;font-size:22px;'>Title: $title </label><br>";
+				echo "<label style='float: left;margin-left: 480px;font-size:20px;'>Sub Title: $subtitle </label>";
+				// echo "<input type='submit' name='startqz' value='START QUIZ' style='width:13% ;height:32%;background-color:#123456;
+				// 	color:white; margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'>";
 			}else{
-				echo "<div style='font-size:26px;'><br>
-				<center>No Quiz is Present</center></div>";
+				
+				echo "<center>No Quiz is Present</center></div>";
 			}					
 		?>
 		
+		<input type='submit' name='startqz' value='START QUIZ' style='width:13% ;height:32%;background-color:#123456;
+					color:white; margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'>
+	</div>
 	</section>
 	</form>
 </body>
