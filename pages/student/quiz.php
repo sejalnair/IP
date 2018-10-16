@@ -1,8 +1,3 @@
-<?php
-	include '../../includes/addquestions.php';
-	
-
-?>
 
 <!Doctype html>
 <html>
@@ -66,34 +61,27 @@ input[type="text"],{
 	<body>
         <header>
             <div id="header">
-                <h2 style="color:white;padding:5px;">Quiz Title:..................</h2>
+                <h2 style="color:white;padding:5px;">Quiz Title: <?php echo $_COOKIE['title']?> </h2>
                 <input id="time" type="time" name="remaining_time " style="float:right">
                 <label  style="color:white;padding:5px;float: right;">Remaining Time:</label>>
                
             </div>
         </header>
 			<aside >
-                    <input type="button" name="startqz" value="1" style="width:14% ;height:7%;margin:10px ;background-color:blue;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="2" style="width:14% ;height:7%;margin:10px ;background-color:yellow;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="3" style="width:14% ;height:7%;margin:10px ;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="4" style="width:14% ;height:7%;margin:10px ;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="5" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="6" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="7" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="8" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="9" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="10" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="11" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="12" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="13" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="14" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="15" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="16" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="17" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="18" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="19" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-                    <input type="button" name="startqz" value="20" style="width:14% ;height:7%;margin:10px;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;"/>
-			</aside>
+				<?php 
+					include '../../includes/dbh.inc.php';
+					$examname =  $_COOKIE['examname'];
+					$sql = "select * from $examname;";
+					$result = mysqli_query($conn,$sql);
+					$count = mysqli_num_rows($result);
+
+					for($i=1;$i<=$count;$i++){
+						echo "<input type='button' name='startqz' value='$i' style='width:14% ;height:7%;margin:10px ;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;'/>";
+					}
+
+
+				?>
+    		</aside>
 			<section>
 				<form action="../../includes/addquestions.php" method="post">
 				<?PHP

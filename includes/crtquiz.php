@@ -1,6 +1,6 @@
 <?php
-include 'studentlogin.php';
-	// session_start();
+	include 'studentlogin.php';
+	session_start();
 	// $class =  $_SESSION['Class'];
 	// echo $class;
 	$subject = 'maths1';
@@ -32,7 +32,7 @@ include 'studentlogin.php';
 			header('Location: ../pages/student/home.php');
 			break;
 		}
-	}else {
+	}else if(mysqli_num_rows($result) === 0 ) {
 		setcookie('examname'," ",time() +86400, '/');
 		setcookie('title'," ",time() +86400, '/');
 		setcookie('subtitle'," ",time() +86400, '/');
@@ -40,8 +40,7 @@ include 'studentlogin.php';
 	}
 	
 	if(isset($_POST['startqz'])){
-		echo "<script>console.log('hellllll')</script>";
-		//header("Location: ../pages/student/quiz.php");
+		header("Location: ../pages/student/quiz.php");
 	}
 
 ?>
