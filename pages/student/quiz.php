@@ -2,10 +2,13 @@
 <!Doctype html>
 <html>
 <head>
-<title>Add Questions</title>
+<title>Quiz</title>
 <meta charset="UTF-8"/>
 
 <style type="text/css">
+*{
+	box-sizing: border-box;
+}
 aside {
 	background-color: #123456;
 	width:20%;
@@ -21,9 +24,10 @@ section {
 	float:left;
 	margin:10px auto;
 }
-#questions {
+#question {
+	display:block;
 	width:90%;
-	height:150px;
+	height:220px;
     border:solid 3px #123456;
 	 
 }
@@ -35,15 +39,16 @@ section {
 
 }
 #choice{
-	padding:0px;
-
+	display:block;
+	padding:10px;
+	margin-top: 20px;
 }
 button{
 	font-size: 16px;
 	padding:5px;
 }
 
-input[type="text"],{
+input[type="text"]{
 	width: 20px;
 }
 #header{
@@ -55,56 +60,70 @@ input[type="text"],{
 #submit{
     margin-top:0px;
 }
+label{
+	display:block;
+}
 </style>
-
 </head>
 	<body>
         <header>
             <div id="header">
                 <h2 style="color:white;padding:5px;">Quiz Title: <?php echo $_COOKIE['title']?> </h2>
                 <input id="time" type="time" name="remaining_time " style="float:right">
-                <label  style="color:white;padding:5px;float: right;">Remaining Time:</label>>
+                <label  style="color:white;padding:5px;float: right;">Remaining Time:</label>
                
             </div>
         </header>
-			<aside >
-				<?php 
-					include '../../includes/dbh.inc.php';
-					$examname =  $_COOKIE['examname'];
-					$sql = "select * from $examname;";
-					$result = mysqli_query($conn,$sql);
-					$count = mysqli_num_rows($result);
+		<aside >
+		<form action="../../includes/quiz.php" method="POST">
+			<?php 
+				 
+				include '../../includes/dbh.inc.php';
+				$examname =  $_COOKIE['examname'];
+				$sql = "select * from $examname;";
+				$result1 = mysqli_query($conn,$sql);
+				$count = mysqli_num_rows($result1);
 
-					for($i=1;$i<=$count;$i++){
-						echo "<input type='button' name='startqz' value='$i' style='width:14% ;height:7%;margin:10px ;background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;'/>";
-					}
-
-
-				?>
-    		</aside>
-			<section>
-				<form action="../../includes/addquestions.php" method="post">
-				<?PHP
-				if(isset($c)) {   $fetchqry = "SELECT * FROM 'd15_maths1_1' where id='$c'"; 
-					$result=mysqli_query($con,$fetchqry);
-					$num=mysqli_num_rows($result);
-					$row = mysqli_fetch_array($result,MYSQLI_ASSOC); }
+				for($i=1;$i<=$count;$i++){
+					echo "<input type='submit' name='questionbtn' value='$i' style='width:14% ;height:7%;margin:10px ;
+					background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;'/>";
+				}
 			?>
-				<div id="que">
-					<h2> Question:- </h2>
-					<div >
-						<textarea  name="Questions" id="questions"><?php if(isset($post['question']) && !empty($_POST["question"])){ echo $_SESSION['question'];}else{echo 'empty';}?></textarea>
-					</div>
+			</form>
+		</aside>
+		<section>
+			<?php
+				$questno = $_COOKIE['QuestionNo'];
+				$sql1 = "select * from $examname where Question_no=$questno;";
+				$result = mysqli_query($conn,$sql1);
 
-					<div id="choice">
-						<input type="radio" name="option" value="<?php echo $row['c1'];?>">&nbsp;<?php echo $row['c1']; ?>
-						<input type="text" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;margin-top:10px;"><br><br>
-						<input type="radio" name="option" value="o1">
-						<input type="text" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-						<input type="radio" name="option" value="o1">
-						<input type="text" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-						<input type="radio" name="option" value="o1">
-						<input type="text" name="ot4" style="width: 30%; padding:8px; margin-bottom:0px;border:solid 2px #123456;"><br><br>
+				$data = mysqli_fetch_array($result);
+				if (!$data) {
+					printf("Error: %s\n", mysqli_error($conn));
+					exit();
+				}
+				$question = $data[1];
+				$c1 = $data[2];
+				$c2 = $data[3];
+				$c3 = $data[4];
+				$c4 = $data[5];
+				echo $question;
+			?>
+			<form action="" method="post">
+			<div id="que">
+				<h2> Question:- <?php echo $questno;?></h2>
+				<div >
+					<label  name="Questions" id="question"></label>
+				</div>
+				<div id="choice">
+					<input type="radio" name="option" value="o1">
+					<label type="ot1" id="ot1" style="width: 200px; padding:8px; border:solid 2px #123456;margin-top:10px;">option 1</label>
+					<input type="radio" name="option" value="o2">
+					<label  name="ot2" id="ot2" style="width:200px; padding:8px; border:solid 2px #123456; margin-top:10px;"></label>
+					<input type="radio" name="option" value="o3">
+					<label  name="ot3" id="ot3" style="width : 200px; padding:8px; border:solid 2px #123456; margin-top:10px;"></label>
+					<input type="radio" name="option" value="o4">
+					<label type="text" name="ot4" id="ot4" style="width: 200px; padding:8px; margin-bottom:0px;border:solid 2px #123456;margin-top:10px;"></label>
 					</div>
 					<div id="submit">
 						<button id="previous" style="background-color:#123456;color:white;margin-left:20px;margin-right:50px;margin-bottom:20px;">Previous</button>
@@ -117,5 +136,23 @@ input[type="text"],{
 				</div>
 			</form>
 			</section>
+			<script>
+        document.getElementById('question').textContent = "<?php echo $question;?>";
+        document.getElementById('ot1').textContent = "<?php echo $c1;?>";
+        document.getElementById('ot2').textContent = "<?php echo $c2;?>";
+        document.getElementById('ot3').textContent = "<?php echo $c3;?>";
+        document.getElementById('ot4').textContent = "<?php echo $c4;?>";
+        // if("<?php echo $ans;?>" ==='a'){
+        //     document.getElementById('ck1').checked = true;
+        // }else if("<?php echo $ans;?>" ==='b'){
+        //     document.getElementById('ck2').checked= true;
+        // }else if("<?php echo $ans;?>" ==='c'){
+        //     document.getElementById('ck3').checked= true;
+        // }else if("<?php echo $ans;?>" ==='d'){
+        //     document.getElementById('ck4').checked= true;
+        // }
+
+    </script>
+
 	</body>
-</html
+</html>
