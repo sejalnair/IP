@@ -14,10 +14,15 @@
         mysqli_query($conn,$sql);
         header('Location: ../pages/teacher/createquiz.php');
     }
-    if(isset($_POST['reset'])){
+    else if(isset($_POST['reset'])){
 		header('Location: ../pages/teacher/createquiz.php');
     }
-    if(isset($_POST['finish'])){
+    else if(isset($_POST['finish'])){
+        $tid = $_SESSION['Tid'];
+        $tablename =  $_COOKIE['tablename'];
+        $sql = "Insert into teacherquiz(Tid,quizname) values($tid,'$tablename');";
+        mysqli_query($conn,$sql);
+        
         setcookie('class',null, -1, '/');
 		setcookie('subject',null, -1, '/');
 		setcookie('time',null, -1, '/');
@@ -27,7 +32,7 @@
         setcookie('tablename',null, -1, '/');
         header('Location: ../pages/teacher/home.php');
     }
-    if(isset($_POST['home'])){
+    else if(isset($_POST['home'])){
         $tablename = $_COOKIE['tablename'];
         $sql = "drop table $tablename;";
         mysqli_query($conn,$sql);
@@ -37,5 +42,8 @@
         $sql = "delete from $class where Id = $id";
         mysqli_query($conn,$sql);
         header('Location: ../pages/teacher/home.php');
+    }
+    else{
+        header('Location: ../pages/forbidden.php');
     }
 ?>

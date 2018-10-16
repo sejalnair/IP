@@ -1,4 +1,10 @@
-
+<?php 
+	include "../../includes/dbh.inc.php";
+	session_start();
+	 if($_SESSION['Tid'] === null || $_SESSION['Name'] === null || $_SESSION['EmailId'] === null || $_SESSION['Password'] === null){
+        header('Location: ../forbidden.php');
+    }
+?>
 <!Doctype html>
 <html>
 <head>
@@ -184,61 +190,58 @@ h1{
 
 </head>
 	<body>
-		<div id="container">
-			<div id='head'>
-					<form  action="../../includes/addquestions.php" method="post">
-					<input type="submit" onclick="callme()" name="home" value="Home" id="btn3" >
-					</form>
-			</div>
-					<aside id="asidebar">
-						<div >
-							<h1>Questions </h3><hr style="background-color:red">
-						</div>
-					<form action="../../includes/update.php" method='get'>
-					<?php
-						include "../../includes/dbh.inc.php";
-						session_start();
-						$num = 0;
-						$tablename = $_COOKIE['tablename'];
-						$sql =  "Select * from $tablename;";
-						$result = mysqli_query($conn,$sql);
-						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_assoc($result)){
-								$rowno = $row['Question_no'];
-								echo "<button name='questno' id='btn' value='$rowno' >Question No: ".$row['Question_no']."</h1>";
-								$num = $row['Question_no'];
-							}
-						}
-					?>
-					</form>
-					</aside>
-					<section id="section">
-					
-						<form action="../../includes/addquestions.php" method="post">
-						<div id="que">
-							<h2>Enter Question:- <?php echo $num+1?></h2>
-							<div >
-								<textarea  name="question" id="questions"></textarea>
-							</div>
-							<div id="choice">
-								<input type="radio" name="option" value="a" class="r1"> 
-								<input type="text" id="i1" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-								<input type="radio" name="option" value="b" class="r1">
-								<input type="text" class="i1" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-								<input type="radio" name="option" value="c" class="r2">
-								<input type="text" class="i2" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-								<input type="radio" name="option" value="d" class="r2">
-								<input type="text" class="i2" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
-							</div>
-							<div id="btns">
-								<input type="submit" name="addquestion" value="Add Question" id="btn1" >
-								<input type="submit" name="reset" value="Reset" id="btn2">
-								<input type="submit" name="finish" value="Finish" id="btn4" style="float:right;margin-right:50px;">
-								
-							</div>
-						</div>
-						</form>
-					</section>
-		</div>	
+	<div id='head'>
+			<form  action="../../includes/addquestions.php" method="post">
+			<input type="submit" onclick="callme()" name="home" value="Home" id="btn3" >
+			</form>
+	</div>
+			<aside>
+				<div >
+					<h1>Questions </h3><hr style="background-color:red">
+				</div>
+			<form action="../../includes/update.php" method='get'>
+			<?php
+				include "../../includes/dbh.inc.php";
+				$num = 0;
+				$tablename = $_COOKIE['tablename'];
+				$sql =  "Select * from $tablename;";
+				$result = mysqli_query($conn,$sql);
+				if(mysqli_num_rows($result) > 0){
+					while($row = mysqli_fetch_assoc($result)){
+						$rowno = $row['Question_no'];
+						echo "<button name='questno' id='btn' value='$rowno' >Question No: ".$row['Question_no']."</h1>";
+						$num = $row['Question_no'];
+					}
+				}
+			?>
+			</form>
+			</aside>
+			<section>
+			
+				<form action="../../includes/addquestions.php" method="post">
+				<div id="que">
+					<h2>Enter Question:- <?php echo $num+1?></h2>
+					<div >
+						<textarea  name="question" id="questions"></textarea>
+					</div>
+					<div id="choice">
+						<input type="radio" name="option" value="a">
+						<input type="text" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="radio" name="option" value="b">
+						<input type="text" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="radio" name="option" value="c">
+						<input type="text" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="radio" name="option" value="d">
+						<input type="text" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+					</div>
+					<div>
+						<input type="submit" name="addquestion" value="Add Question" id="btn1" >
+						<input type="submit" name="reset" value="Reset" id="btn1">
+						<input type="submit" name="finish" value="Finish" id="btn1" style="float:right;margin-right:50px;">
+						
+					</div>
+				</div>
+			</form>
+			</section>
 	</body>
-</html
+</html>

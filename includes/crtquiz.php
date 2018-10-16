@@ -1,29 +1,47 @@
 <?php
- /*if(isset($_POST['createqz'])){
-	setcookie('class',$_POST['class'],time() +86400, '/');
-	setcookie('subject',$_POST['subject'],time() +86400, '/');
-	setcookie('time',$_POST['exam_time'],time() +86400, '/');
-	setcookie('date',$_POST['exam_date'],time() +86400, '/');
-	setcookie('title',$_POST['title'],time() +86400, '/');
-	setcookie('subtitle',$_POST['subtitle'],time() +86400, '/');
-
-	$class = $_POST['class'] ;
-	$subject = $_POST['subject'];
-	$date = $_POST['exam_date'];
-	$time = $_POST['exam_time'] ;
-	$title = $_POST['title'];
-	$subtitle = $_POST['subtitle'];*/
-
-$sql="SELECT Title,Subtitle FROM d20 where id=1";
-if ($result=mysqli_query($conn,$sql)) {
-  // Fetch one and one row
-	  while ($row=mysqli_fetch_row($result))	{
-		echo"<center><font size='5'><b>QUIZ TITLE: </b></font><label>".$row[0]."</label></center><br>";
-		echo"<center><font size='5'><b>QUIZ SUBTITLE: </b></font><label>".$row[1]."</label></center>";
+include 'studentlogin.php';
+	// session_start();
+	// $class =  $_SESSION['Class'];
+	// echo $class;
+	$subject = 'maths1';
+	$class = $_COOKIE['class'];
+	if(isset($_POST['maths1'])){
+		$subject = 'maths1';
+	}
+	if(isset($_POST['dsa'])){
+		$subject='dsa';
+	}
+	if(isset($_POST['ld'])){
+		$subject='ld';
+	}
+	if(isset($_POST['dbms'])){
+		$subject='dbms';
+	}
 	
-}
-  // Free result set
-  mysqli_free_result($result);
-}
- 
+	
+	$sql = "select * from $class where Subject= '$subject'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)>0 ){
+		while($row = mysqli_fetch_assoc($result)){
+			$a = $row['Tablename'];
+			$a1 = $row['Title'];
+			$a2 = $row['Subtitle'];
+			setcookie('examname',$a,time() +86400, '/');
+			setcookie('title',$a1,time() +86400, '/');
+			setcookie('subtitle',$a2,time() +86400, '/');
+			header('Location: ../pages/student/home.php');
+			break;
+		}
+	}else {
+		setcookie('examname'," ",time() +86400, '/');
+		setcookie('title'," ",time() +86400, '/');
+		setcookie('subtitle'," ",time() +86400, '/');
+		header('Location: ../pages/student/home.php');
+	}
+	
+	if(isset($_POST['startqz'])){
+		echo "<script>console.log('hellllll')</script>";
+		//header("Location: ../pages/student/quiz.php");
+	}
+
 ?>

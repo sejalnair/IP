@@ -9,10 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div id="content">
-		<div class="header" style="margin-top:unset;"><label id="text">Teacher Login</label></div>
+	<div id="content"> 
+		<div class="header">Teacher Login</div>
 		<div class="form">
-			<form action="loginteacher.php" method="post">
+			<form action="" method="post">
 				<div id="emailid">
 					<label>Email-id:  </label>
 					<input type="email" name="email"><br>
