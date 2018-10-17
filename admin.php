@@ -11,7 +11,7 @@
 	<div id="content"> 
 		<div class="header">Admin Login</div>
 		<div class="form">
-			<form action="admin.php" method="post">
+			<form action="./includes/adminlogin.php" method="post">
 				<div id="emailid">
 					<label>Email-id:  </label>
 					<input type="email" name="email"><br>

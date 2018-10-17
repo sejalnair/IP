@@ -15,7 +15,7 @@
 					$_SESSION['EmailId'] = $row['EmailId'];
 					$_SESSION['Password'] = $row['Password'];
             
-                    header("Location: ../quizzone/pages/admin/home.php");
+                    header("Location: ../pages/admin/home.php");
 				}
 			}else{
 				echo '<script language="javascript">';

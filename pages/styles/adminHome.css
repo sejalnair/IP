@@ -81,7 +81,18 @@ select{
     height:40px;
     width: 130px;
 }
-
+@media screen and (max-width: 641px) {
+    #lo{
+        float:right;
+    }
+    #btn-grp{
+        width:100%;
+    }
+    #ADDstu{
+        padding:unset;
+        width:100%
+    }
+}
 
 
 
