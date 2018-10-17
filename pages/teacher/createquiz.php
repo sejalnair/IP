@@ -10,7 +10,7 @@
 <head>
 <title>Add Questions</title>
 <meta charset="UTF-8"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 aside {
 	/* background-color: #123456; */
@@ -92,7 +92,30 @@ input[type="text"],{
 	background-color: #97025b;
 	color: white;
 }
+#btn2{
+	background-color: white; 
+	color: black; 
+	border: 2px solid #97025b;
+	font-size:20px;
+	margin-left:50px;
+}
 
+#btn2:hover {
+	background-color: #97025b;
+	color: white;
+}
+#btn4{
+	background-color: white; 
+	color: black; 
+	border: 2px solid #97025b;
+	font-size:20px;
+	margin-left:50px;
+}
+
+#btn1:hover {
+	background-color: #97025b;
+	color: white;
+}
 h1{
 	text-align:center;
 }
@@ -116,6 +139,52 @@ h1{
 	background-color: #f4511e;
 	color: white;
 }
+@media screen and (max-width: 641px) {
+            #container{
+                width:100%;
+            }
+            #asidebar{
+                width:100%;
+				height:20%;
+				
+            }
+			#section{
+				width:100%;
+				height:70%;
+			}
+			#btns{
+				width:100%;
+				
+			}
+			#btns{
+				width:100%;
+				
+			}
+			#btn1{
+				
+				width:50%;
+				margin-bottom:10px;
+				margin-left:0px;
+				float:left;
+				
+			}
+			#btn2{
+				width:40%;
+				float:left;
+				margin-left:20px;
+				margin-bottom:20px;
+			}
+			#btn4{
+				width:22%;
+				margin-right:0px;
+				
+				
+			}
+			#choice{
+				width:100%;
+			}
+			
+        }
 
 </style>
 
