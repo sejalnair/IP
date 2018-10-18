@@ -123,7 +123,7 @@ h1{
 	<body>
 	<div id='head'>
 			<form  action="../../includes/addquestions.php" method="post">
-			<input type="submit" onclick="callme()" name="home" value="Home" id="btn3" >
+			<input type="submit" name="home" value="Home" id="btn3" >
 			</form>
 	</div>
 			<aside>
