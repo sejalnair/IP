@@ -23,17 +23,23 @@
 	if(isset($_POST['next'])){
 		$que_no = $_COOKIE['QuestionNo'];
 		$ans =  $_POST['option'];
-
 		$qtable = $_COOKIE['qtablename'];
 		
 		$query = "Select * from $qtable where Question_no=$que_no";
 		$r = mysqli_query($conn,$query);
 		
 		if(mysqli_num_rows($r) === 0){
-			$q = "Insert into $qtable values($que_no,'$ans')";
+			if($ans != ""){
+				$q = "Insert into $qtable values($que_no,'$ans',1)";
+			}else{
+				$q = "Insert into $qtable values($que_no,'$ans',2)";
+			}
 		}
 		else{
-			$q = "Update $qtable set Answer='$ans' where Question_no=$que_no";
+			if($ans != ""){
+				$q = "Update $qtable set Answer='$ans', State=1 where Question_no=$que_no";
+			}
+			
 		}
 		print_r($q);
 		mysqli_query($conn,$q);
@@ -61,9 +67,29 @@
 
 	if(isset($_POST['previous'])){
 		$que_no = $_COOKIE['QuestionNo'];
+		$ans =  $_POST['option'];
+		$qtable = $_COOKIE['qtablename'];
+		
+		$query = "Select * from $qtable where Question_no=$que_no";
+		$r = mysqli_query($conn,$query);
+		
+		if(mysqli_num_rows($r) === 0){
+			if($ans != ""){
+				$q = "Insert into $qtable values($que_no,'$ans',1)";
+			}else{
+				$q = "Insert into $qtable values($que_no,'$ans',2)";
+			}
+		}
+		else{
+			if($ans != ""){
+				$q = "Update $qtable set Answer='$ans' where Question_no=$que_no";
+			}
+		}
+		print_r($q);
+		mysqli_query($conn,$q);
+		
 		if($que_no != 1){
 			$que_no= $que_no - 1;
-			echo $que_no;
 			setcookie('QuestionNo',$que_no,time() +86400, '/');
 		}
 		$qtable = $_COOKIE['qtablename'];
@@ -71,7 +97,8 @@
 		$r2 = mysqli_query($conn,$sql2);
 		if(mysqli_num_rows($r2) > 0){
 			$answer = mysqli_fetch_array($r2);
-			setcookie('answer',$answer[0],time() +86400, '/');
+			print_r($answer);
+			setcookie('answer',$answer[Answer],time() +86400, '/');
 		}
 		else{
 			setcookie('answer','o5',time() +86400, '/');

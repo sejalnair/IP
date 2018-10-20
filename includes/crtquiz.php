@@ -28,7 +28,7 @@
 		setcookie('qtablename',$qtablename,time() +86400, '/');
 		
 		// creating tables in database
-		$sql = "create table $qtablename ( Question_no int primary key,Answer varchar(2));";
+		$sql = "create table $qtablename ( Question_no int primary key,Answer varchar(2),State int check(State in (1,2,3)));";
 		mysqli_query($conn,$sql);
 		$i=1;
 		echo $i;

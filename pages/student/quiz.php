@@ -85,6 +85,7 @@ label{
 			<?php 
 				 
 				include '../../includes/dbh.inc.php';
+				
 				$examname =  $_COOKIE['examname'];
 				$sql = "select * from $examname;";
 				$result1 = mysqli_query($conn,$sql);
@@ -113,8 +114,16 @@ label{
 				$c2 = $data[3];
 				$c3 = $data[4];
 				$c4 = $data[5];
-				
-				$ans = $_COOKIE['answer'];
+				$qtable = $_COOKIE['qtablename'];
+				$sql = "Select Answer,State from $qtable where Question_no = $questno";
+				$r = mysqli_query($conn,$sql);
+				$r1=mysqli_fetch_array($r);
+				if(mysqli_num_rows($r) > 0 && $r1['State'] == 1){
+					$ans = $_COOKIE['answer'];
+				}
+				else{
+					$ans='e';
+				}
 			?>
 			<form action="../../includes/quiz.php" method="POST">
 			
@@ -124,48 +133,38 @@ label{
 					<label  name="Questions" id="question"><?php echo $question;?></label>
 				</div>
 				<div id="choice">
-					<input type="radio" name="option" value="o1" <?php echo ($ans=='o1')?'checked':'' ?> > 
+					<input type="radio" name="option" value="a" <?php echo ($ans=='a')?'checked':'' ?> > 
 					<label type="ot1" id="ot1" style="width: 300px; padding:8px; border:solid 2px #123456;"><?php echo $c1;?></label><br><br>
-					<input type="radio" name="option" value="o2" <?php echo ($ans=='o2')?'checked':'' ?> >
+					<input type="radio" name="option" value="b" <?php echo ($ans=='b')?'checked':'' ?> >
 					<label  name="ot2" id="ot2" style="width:300px; padding:8px; border:solid 2px #123456;"><?php echo $c2;?></label><br><br>
-					<input type="radio" name="option" value="o3" <?php echo ($ans=='o3')?'checked':'' ?>>
+					<input type="radio" name="option" value="c" <?php echo ($ans=='c')?'checked':'' ?>>
 					<label  name="ot3" id="ot3" style="width : 300px; padding:8px; border:solid 2px #123456;"><?php echo $c3;?></label><br><br>
-					<input type="radio" name="option" value="o4" <?php echo ($ans=='o4')?'checked':'' ?>>
+					<input type="radio" name="option" value="d" <?php echo ($ans=='d')?'checked':'' ?>>
 					<label type="text" name="ot4" id="ot4" style="width: 300px; padding:8px; border:solid 2px #123456;"><?php echo $c4;?></label><br><br>
 					</div>
 					<div id="submit">
-						<button id="previous" name="previous" style="background-color:#123456;color:white;margin-left:20px;margin-right:50px;margin-bottom:20px;">Previous</button>
-						<button id="next" name="next" style="background-color:#123456;color:white;margin-right:50px;">Next</button>
-                        <button id="bookmarked" name="bookmark" onClick="cColor()" style="background-color:#123456;color:white;margin-right:50px;">Bookmarked</button><br>
-                        <label id="last">Unattempted</label><button id="last" style="background-color:white; width:30px;height:30px;margin-left:50px;"></button>
+						<?php
+						if($questno != 1){ 
+							echo "<button id='previous' name='previous' style='background-color:#123456;color:white;margin-left:20px;margin-right:50px;margin-bottom:20px;'>Previous</button>";
+						}
+						?>
+                        <button id="bookmark" name="bookmark" style="background-color:#123456;color:white;margin-right:50px;">Bookmark</button>
+                        <?php
+						if($questno == $count){ 
+							echo "<button id='finish' name='finish' style='background-color:#123456;color:white;margin-right:50px;'>Finish</button>";
+						}else{
+							echo "<button id='next' name='next' style='background-color:#123456;color:white;'>Next</button>";
+						}
+						?>
+						<br>	
+						<label id="last">Unattempted</label><button id="last" style="background-color:white; width:30px;height:30px;margin-left:50px;"></button>
 						<label id="last">Bookmarked</label><button id="last" style="background-color:yellow; width:30px;height:30px;margin-left:50px;"></button>
-						<label id="last">Attempted</label><button id="last" style="background-color:blue; width:30px;height:30px;;margin-left:380px;"></button>
+						<label id="last">Attempted</label><button id="last" style="background-color:blue; width:30px;height:30px;;margin-left:50px;"></button>
                         
                         
 					</div>
 				</div>
 			</form>
 			</section>
-			<script>
-				window.onload = function () {
-					colorChange();
-				};
-
-			function colorChange(){
-				var count= '<?php echo $count?>';
-				var i;
-				for (i=0;i<=count;i++){
-					var property = getElementByName(i);
-					if(document.getElementByName('option').checked){
-							property.style.backgroundColor=blue;
-					}
-				}
-			}
-
-			function cColor(){
-				var i='<?php echo $questno; ?>';
-				document.getElementByName(i).style.backgroundColor=yellow;
-			}
-			</script>
 	</body>
 </html>
