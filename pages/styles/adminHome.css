@@ -15,6 +15,7 @@ body{
 
 #lo{
     height: 43px;
+    width: 100%;
 }
 #logoutbtn{
     float:right;
@@ -45,14 +46,14 @@ body{
 .tabcontent {
     display: none;
     height: 100%;
-    padding-left: 450px;
-    padding-top: 50px;
+    padding-left: 31%;
+    padding-top: 4%;
     width: 100%;
     font-size: 19px;
 }
 #ADDT, #ADDSub {
-    padding-left: 530px;
-    padding-top: 80px;
+    padding-left: 35%;
+    padding-top: 6%;
 }
 
 form{
