@@ -25,14 +25,14 @@
 
 <html>
 <head>
-	<title>Students1stpage</title>
+	<title>Student Home Page</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<style type="text/css">
 		
 		.btn1{
-			background-color: #123456;
+			background-color: #720245;
 			float: right;
 			width: 10%;
 			padding: 15px;
@@ -40,7 +40,6 @@
 			border:unset;
 			border-radius:20px;
 			
-
 		}
 		.btn2{
 			background-color: #123456;
@@ -170,7 +169,7 @@
 <body>
 		<form  action="../../includes/crtquiz.php" method="post">
 		<header>
-			<div id="name">
+			<div style="width:100%;height:60px;background-color: #eeee;font-size:30px; padding-top: 10px">
 				<label>Name:</label>
 				<label><?php echo $_SESSION['Name'];?></label>
 				<label style="margin-left:50px;">Class:</label>
@@ -187,7 +186,7 @@
 			<button class="subtn"  name="dbms" value="dbms" style="width:100% ;size: 50px;padding:25px;background-color: #123456;color:white;border-radius:10px;margin-bottom:3px;" >DBMS</button>
 		</div>
 	
-	<section >
+	<section >			
 		<?php 
 			$title =  $_COOKIE['title'];
 			$subtitle = $_COOKIE['subtitle'];
@@ -199,11 +198,11 @@
 				echo "<input type='submit' name='startqz' value='START QUIZ'  style='width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'/>";
 				echo "</div>";
 			}else{
-				echo "<div style='font-size:26px;'><br>
-				<center>No Quiz is Present</center></div>";
+				
+				echo "<center>No Quiz is Present</center></div>";
 			}					
 		?>
-		
+	
 	</section>
 	</form>
 </body>
