@@ -14,8 +14,7 @@
 					$_SESSION['Name'] = $row['Name'];
 					$_SESSION['EmailId'] = $row['EmailId'];
 					$_SESSION['Password'] = $row['Password'];
-            
-                    header("Location: ../../pages/admin/home.php");
+             header("Location: ../pages/admin/home.php");
 				}
 			}else{
 				echo '<script language="javascript">';

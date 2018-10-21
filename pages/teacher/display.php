@@ -46,6 +46,7 @@
         <th>Choice 4</th>
         <th>Answer</th>
     </tr>
+        <form method='post' action='../../includes/update.php'>
         <?php 
             include '../../includes/dbh.inc.php';
             $tablename = $_COOKIE['displaytable'];
@@ -60,10 +61,11 @@
                     $c3 = $row['C3'];
                     $c4 = $row['C4'];
                     $ans = $row['Answer'];
-                    echo "<tr> <td>$quest_no</td><td>$quest</td><td>$c1</td><td>$c2</td><td>$c3</td><td>$c4</td><td>$ans</td></tr>";
+                    echo "<tr> <td>$quest_no</td><td>$quest</td><td>$c1</td><td>$c2</td><td>$c3</td><td>$c4</td><td>$ans</td><td><button type='submit' id='edit' value='$quest_no' name='quest_no'>Edit</button></td></tr>";
                 }
             }
         ?>
+        </form>
     </table>
 
 </body>

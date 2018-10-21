@@ -11,7 +11,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit: <?php $questno = $_COOKIE['questno']; echo $questno; ?></title>
     <style>
         #edit{
@@ -40,30 +39,12 @@
             background-color: #97025b;
             color: white;
         }
-        #ot1,#ot2,#ot3,#ot4{
-            width: 30%;
-            padding:8px;
-            border:solid 2px #123456;
-        }
-        @media screen and (max-width: 641px) {
-        
-            #edit{
-                width:100%;
-                overflow:hidden;
-                margin-left:2px;
-            }
-            #btn{
-                margin-left:10px;
-            }
-           #ot1,#ot2,#ot3,#ot4{
-               width:50%;
-           } 
-        }
-    </style>
+            </style>
     <?php
         include "../../includes/dbh.inc.php";
-        $tablename = $_COOKIE['tablename'];
-        $sql = "select * from $tablename where Question_no = $questno";
+        $quest_no = $_COOKIE['quest_no']; 
+        $tablename = $_COOKIE['displaytable'];
+        $sql = "select * from $tablename where Question_no = $quest_no";
         $result= mysqli_query($conn,$sql);
         $data = mysqli_fetch_array($result);
         $question = $data[1];
@@ -78,24 +59,24 @@
 
 </head>
 <body>
-    
+    <br><br><br>
     <div id="edit">
-    <h1>Edit Question No: <?php $questno = $_COOKIE['questno']; echo $questno;?></h1>
+    <h1>Edit Question No: <?php echo $quest_no;?></h1>
     <form action="../../includes/questionupdate.php" method="post">
     <textarea  name="question" id="txtarea"></textarea>
     <div id="choice">
         <input type="radio" id="ck1" name="option" value="a" >
-        <input type="text" id="ot1" name="ot1"><br><br>
+        <input type="text" id="ot1" name="ot1"  style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
         <input type="radio" id="ck2" name="option" value="b" >
-        <input type="text" id="ot2" name="ot2"><br><br>
+        <input type="text" id="ot2" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
         <input type="radio" id="ck3" name="option" value="c">
-        <input type="text"  id="ot3" name="ot3"><br><br>
+        <input type="text"  id="ot3" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
         <input type="radio" id="ck4" name="option" value="d">
-        <input type="text" id="ot4" name="ot4"><br><br>
+        <input type="text" id="ot4" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
     </div>
     <div>
-        <input type="submit" name="updatequestion" value="Update Question" id="btn" >
-        <input type="submit" name="back" value="Go Back" id="btn" >
+        <input type="submit" name="update" value="Update Question" id="btn" >
+        <input type="submit" name="backbutton" value="Go Back" id="btn" >
     </div>
     </form>
     </div>

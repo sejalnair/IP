@@ -10,7 +10,7 @@
 <head>
 <title>Add Questions</title>
 <meta charset="UTF-8"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 aside {
 	/* background-color: #123456; */
@@ -92,7 +92,30 @@ input[type="text"],{
 	background-color: #97025b;
 	color: white;
 }
+#btn2{
+	background-color: white; 
+	color: black; 
+	border: 2px solid #97025b;
+	font-size:20px;
+	margin-left:50px;
+}
 
+#btn2:hover {
+	background-color: #97025b;
+	color: white;
+}
+#btn4{
+	background-color: white; 
+	color: black; 
+	border: 2px solid #97025b;
+	font-size:20px;
+	margin-left:50px;
+}
+
+#btn1:hover {
+	background-color: #97025b;
+	color: white;
+}
 h1{
 	text-align:center;
 }
@@ -111,23 +134,83 @@ h1{
 	margin-right:50px;
 	padding:10px;
 }
+#ot1,#ot2,#ot3,#ot4{
+	width: 30%; 
+	padding:8px; 
+	border:solid 2px #123456;
+}
 
 #btn3:hover {
 	background-color: #f4511e;
 	color: white;
 }
-
+@media screen and (max-width: 641px) {
+			
+            #container{
+                width:85%;
+				margin-left:unset;
+				
+            }
+            #asidebar{
+                width:100%;
+				height:10%;
+				
+            }
+			#section{
+				margin-top:0px;
+				margin-left:10px;
+				width:105%;
+				height:70%;
+			}
+			#btns{
+				width:100%;
+				
+			}
+			#btns{
+				width:100%;
+				
+			}
+			#btn1{
+				
+				width:50%;
+				margin-bottom:10px;
+				margin-left:0px;
+				float:left;
+				
+			}
+			#btn2{
+				width:40%;
+				float:left;
+				margin-left:20px;
+				margin-bottom:20px;
+			}
+			#btn4{
+				width:23%;
+				margin-right:0px;
+				
+				
+			}
+			#choice{
+				width:100%;
+			}
+			#ot1,#ot2,#ot3,#ot4{
+			width: 60%; 
+			}
+			#questions{
+				width:90%;
+			}
+}
 </style>
 
 </head>
-	<body>
+	<body id="container">
 	<div id='head'>
 			<form  action="../../includes/addquestions.php" method="post">
 			<input type="submit" name="home" value="Home" id="btn3" >
 			</form>
 	</div>
-			<aside>
-				<div >
+			<aside id="asidebar">
+				<div>
 					<h1>Questions </h3><hr style="background-color:red">
 				</div>
 			<form action="../../includes/update.php" method='get'>
@@ -147,7 +230,7 @@ h1{
 			?>
 			</form>
 			</aside>
-			<section>
+			<section id="section">
 			
 				<form action="../../includes/addquestions.php" method="post">
 				<div id="que">
@@ -157,18 +240,18 @@ h1{
 					</div>
 					<div id="choice">
 						<input type="radio" name="option" value="a">
-						<input type="text" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot1" id="ot1"><br><br>
 						<input type="radio" name="option" value="b">
-						<input type="text" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot2" id="ot2"><br><br>
 						<input type="radio" name="option" value="c">
-						<input type="text" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot3" id="ot2"><br><br>
 						<input type="radio" name="option" value="d">
-						<input type="text" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot4" id="ot2" ><br><br>
 					</div>
-					<div>
+					<div id="buttons">
 						<input type="submit" name="addquestion" value="Add Question" id="btn1" >
-						<input type="submit" name="reset" value="Reset" id="btn1">
-						<input type="submit" name="finish" value="Finish" id="btn1" style="float:right;margin-right:50px;">
+						<input type="submit" name="reset" value="Reset" id="btn2">
+						<input type="submit" name="finish" value="Finish" id="btn4" style="float:right;margin-right:50px;">
 						
 					</div>
 				</div>
