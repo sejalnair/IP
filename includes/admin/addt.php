@@ -9,11 +9,10 @@
     $name = $_POST['name'];
     $emailid = $_POST['emailid'];
     $password = $_POST['password'];
-    mysqli_free_result($t);
+    //mysqli_free_result($t);
     if($name != ''||$emailid != ''||$password !=''){    
         
         $sql ="INSERT INTO teacher_login (name, emailid, password) VALUES ('$name', '$emailid', '$password')";
-        
         if(mysqli_query($conn,$sql) === TRUE) {
             echo '<script language="javascript">';
             echo 'confirm("New record created successfully")';
@@ -34,3 +33,4 @@
     echo '</script>';
     mysqli_close($conn);
 ?>
+
