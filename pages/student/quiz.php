@@ -10,7 +10,7 @@
 	box-sizing: border-box;
 }
 aside {
-	background-color: #123456;
+	border:2px solid #123456;
 	width:20%;
 	height:500px;
 	float:left;
@@ -90,10 +90,30 @@ label{
 				$sql = "select * from $examname;";
 				$result1 = mysqli_query($conn,$sql);
 				$count = mysqli_num_rows($result1);
-
+				
 				for($i=1;$i<=$count;$i++){
+					$qtable = $_COOKIE['qtablename'];
+					$sql = "Select Answer,State from $qtable where Question_no = $i";
+					$r = mysqli_query($conn,$sql);
+					
+					$r1= mysqli_fetch_array($r);
+					if(mysqli_num_rows($r)== 0 && $r1['Answer']==""){
+						if($r1['State']== 4){
+							$color='yellow';
+						}
+						else{
+							$color='white';
+						}
+					}else{
+						if($r1['State']== 3){
+							$color='yellow';
+						}
+						else{
+							$color='#123456';
+						}
+					}
 					echo "<input type='submit' name='questionbtn' value='$i' style='width:14% ;height:7%;margin:10px ;
-					background-color:white;border-radius: 50%;font-size: 10px;border:0px;font-weight: bold;font-size:20px;padding:5px;'/>";
+					background-color:$color;border-radius: 50%;font-size: 10px;border:1px solid #123456;font-weight: bold;font-size:20px;padding:5px;'/>";
 				}
 			?>
 			</form>
@@ -118,7 +138,7 @@ label{
 				$sql = "Select Answer,State from $qtable where Question_no = $questno";
 				$r = mysqli_query($conn,$sql);
 				$r1=mysqli_fetch_array($r);
-				if(mysqli_num_rows($r) > 0 && $r1['State'] == 1){
+				if(mysqli_num_rows($r) > 0 &&( $r1['State'] == 1 || $r1['State']== 3)){
 					$ans = $_COOKIE['answer'];
 				}
 				else{
@@ -148,7 +168,24 @@ label{
 							echo "<button id='previous' name='previous' style='background-color:#123456;color:white;margin-left:20px;margin-right:50px;margin-bottom:20px;'>Previous</button>";
 						}
 						?>
-                        <button id="bookmark" name="bookmark" style="background-color:#123456;color:white;margin-right:50px;">Bookmark</button>
+						<?php
+							$qtable = $_COOKIE['qtablename'];
+							$sql = "Select Answer,State from $qtable where Question_no = $questno";
+							$r = mysqli_query($conn,$sql);
+							$r1=mysqli_fetch_array($r);
+							if(mysqli_num_rows($r)>0){
+								if( $r1['State'] == 1 ||$r1['State'] == 2){
+									echo "<button id='bookmark' name='bookmark' style='background-color:#123456;color:white;margin-right:50px;'>Bookmark</button>";
+								}
+								else{
+									echo "<button id='unbookmark' name='unbookmark' style='background-color:#123456;color:white;margin-right:50px;'>Unbookmark</button>";
+								}
+							}else{
+								echo "<button id='bookmark' name='bookmark' style='background-color:#123456;color:white;margin-right:50px;'>Bookmark</button>";
+							}
+
+						
+						?>
                         <?php
 						if($questno == $count){ 
 							echo "<button id='finish' name='finish' style='background-color:#123456;color:white;margin-right:50px;'>Finish</button>";
@@ -159,7 +196,7 @@ label{
 						<br>	
 						<label id="last">Unattempted</label><button id="last" style="background-color:white; width:30px;height:30px;margin-left:50px;"></button>
 						<label id="last">Bookmarked</label><button id="last" style="background-color:yellow; width:30px;height:30px;margin-left:50px;"></button>
-						<label id="last">Attempted</label><button id="last" style="background-color:blue; width:30px;height:30px;;margin-left:50px;"></button>
+						<label id="last">Attempted</label><button id="last" style="background-color:#123456; width:30px;height:30px;;margin-left:50px;"></button>
                         
                         
 					</div>
