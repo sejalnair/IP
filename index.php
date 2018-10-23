@@ -3,17 +3,27 @@
 <head>
 	<title>Quiz-Zone</title>
 	<!-- <link rel="stylesheet" type="text/css" href="styles/style.css">  -->
+	<link rel="icon" href="quizicon.png" />
+	<link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
 <style>	
+body{
+	margin:1px;
+}
 	*{
+
     overflow: hidden;;
 } 
 #header{
-    background-color: #f7eff0;
+	background-color: #f7eff0;
+	padding:10px;
 
 }
 #img{
     margin-left:30px;
-    float:left;
+	float:left;
+	margin-right:10px;
+	/* padding:10px; */
+
 }
 #img2{
     opacity: 0.1;
@@ -99,7 +109,9 @@ a:hover{
 <body>
 	<header>
 		<div id="header">
-			<img src="images/quiz-zone.png" width="150px" id="img">
+			<img src="quizicon.png" width="70px" id="img">
+			<label style='font-size:50px;font-family:Libre Baskerville;color:#720245'>Quiz Zone</label>
+			<!-- <img src="images/quiz-zone.png" width="150px" id="img"> -->
 			<nav id="nav">
 				<a href="#">Home</a> 
 				<a href="#">About</a> 
