@@ -51,6 +51,18 @@
 		$i=1;
 		echo $i;
 		setcookie('QuestionNo',$i,time() +86400, '/');
+		
+		$_SESSION['duration']=45;
+		$_SESSION['start_time']=date("Y-m-d H:i:s");
+
+		$end_time = date('Y-m-d H:i:s',strtotime('+'.$_SESSION['duration'].'minutes',strtotime($_SESSION['start_time'])));
+
+		$_SESSION['end_time']=$end_time;
+
 		header("Location: ../pages/student/quiz.php");
 	}
+
+	
+	
+
 ?>
