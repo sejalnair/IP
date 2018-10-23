@@ -9,6 +9,7 @@
     $name = $_POST['name'];
     $emailid = $_POST['emailid'];
     $password = $_POST['password'];
+    
     mysqli_free_result($t);
     if($name != ''||$emailid != ''||$password !=''){    
         
@@ -21,11 +22,16 @@
             echo '<script language="javascript">';
             echo "window.location = ('../../pages/admin/home.php');\n";
             echo '</script>';
+            setcookie('name',$name,time() +86400, '/');
+            setcookie('emailid',$emailid,time() +86400, '/');
+            setcookie('password',$password,time() +86400, '/');
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         
-        
+   
+    include '../../gmail.php';
+  
     header("Location: ../../pages/admin/home.php");
 
     }
