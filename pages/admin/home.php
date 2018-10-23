@@ -1,4 +1,34 @@
+<?php
+    $result="";
 
+    if(isset($_POST['submit'])){
+        require 'phpmailer/PHPMailerAutoload.php';
+        $mail = new PHPMailer;
+
+        $mail->Host='smtp.gmail.com';
+        $mail->Port=587;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='tls';
+        $mail->Username='2016.sejal.nair@ves.ac.in';
+        $mail->Password='snejal@912';
+
+        $mail->setFrom($_POST['emailid'],$_POST['password']);
+        $mail->addAddress('sejal.nair@somaiya.edu');
+        $mail->addReplyto($_POST['emailid'],$_POST['name']);
+
+        $mail->isHTML(true);
+        $mail->Subject ='Login';
+        $mail->body='<h1 align=center>Name:'.$_POST['name'].'<br>Email:'.$_POST['emailid'].'</h1>';
+
+        if(!$mail->send()){
+            $result="Something went wrong.Please try again.";
+        }
+        else{
+            $result="Thanks".$_POST['name']."loging in.";
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +73,7 @@
     <button class="tablink" onclick="openPage('ADDSub', this, '#97025b')"> Add Subject</button>
 </div>
 <div id="ADDT" class="tabcontent">
+    <h5 class="text-center text-success"><?= $result; ?></h5>
     <form action="../../includes/admin/addt.php" method="POST" >
         <label>Name :</label>
         <input type="text" placeholder="Name" name="name" style="width:370px">
@@ -87,7 +118,7 @@
         <input type="text" style="width:370px" name="password" placeholder="Password">
         <br>
         <br>
-        <input type="submit" value="Submit" id="submit">
+        <input type="submit" value="Submit" name="submit" id="submit">
         <button type="reset" value="Reset" id="reset">Reset</button>
     </form>
 </div>
