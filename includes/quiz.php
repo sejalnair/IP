@@ -36,11 +36,17 @@
 			}
 		}
 		else{
-			if($res['State']== 2){
+			if(($res['State']== 2 && $ans!="")||$res['State']==1){
 				$q = "Update $qtable set Answer='$ans', State=1 where Question_no=$que_no";
 			}
-			else{
+			elseif($res['State']==2 && $ans == ""){
+				$q = "Update $qtable set Answer='$ans', State=2 where Question_no=$que_no";
+			}
+			elseif(($res['State']==4 && $ans !="")|| $res['State']==3){
 				$q = "Update $qtable set Answer='$ans', State=3 where Question_no=$que_no";
+			}
+			else{
+				$q = "Update $qtable set Answer='$ans', State=4 where Question_no=$que_no";
 			}
 		}
 		
@@ -171,5 +177,100 @@
 			setcookie('answer','o5',time() +86400, '/');
 		}
 		header('Location: ../pages/student/quiz.php');
+	}
+	if(isset($_POST['finish'])){
+
+		$que_no = $_COOKIE['QuestionNo'];
+		$ans =  $_POST['option'];
+		$qtable = $_COOKIE['qtablename'];
+		
+		$query = "Select * from $qtable where Question_no=$que_no";
+		$r = mysqli_query($conn,$query);
+		$res = mysqli_fetch_array($r);
+		if(mysqli_num_rows($r) === 0){
+			if($ans != "" ){
+				$q = "Insert into $qtable values($que_no,'$ans',1)";
+			}else{
+				$q = "Insert into $qtable values($que_no,'$ans',2)";
+			}
+		}
+		else{
+			if(($res['State']== 2 && $ans!="")||$res['State']==1){
+				$q = "Update $qtable set Answer='$ans', State=1 where Question_no=$que_no";
+			}
+			elseif($res['State']==2 && $ans == ""){
+				$q = "Update $qtable set Answer='$ans', State=2 where Question_no=$que_no";
+			}
+			elseif(($res['State']==4 && $ans !="")|| $res['State']==3){
+				$q = "Update $qtable set Answer='$ans', State=3 where Question_no=$que_no";
+			}
+			else{
+				$q = "Update $qtable set Answer='$ans', State=4 where Question_no=$que_no";
+			}
+		}
+		
+		mysqli_query($conn,$q);
+		
+		$examname =  $_COOKIE['examname'];
+		$sql = "select * from $examname;";
+		$result1 = mysqli_query($conn,$sql);
+		$count = mysqli_num_rows($result1);
+		if($que_no != $count){
+			$que_no= $que_no+1;
+			setcookie('QuestionNo',$que_no,time() +86400, '/');
+		}
+		$sql1 = "Select Answer from $qtable where Question_no = $que_no";
+		$r = mysqli_query($conn,$sql1);
+		if(mysqli_num_rows($r) > 0){
+			$answer = mysqli_fetch_array($r);
+			setcookie('answer',$answer[0],time() +86400, '/');
+		}
+		else{
+			setcookie('answer','o5',time() +86400, '/');
+		}
+
+
+
+		$sid = $_COOKIE['sid'];
+		$examname = $_COOKIE['examname'];
+		$class = $_COOKIE['class'];
+		$tablename =  $_COOKIE['qtablename'];
+		// result evalution
+		$sql = "select * from $examname";
+		$result = mysqli_query($conn,$sql);
+		$row = mysqli_num_rows($result);
+		$answers = new SplFixedArray($row);
+		$i=0;
+		while($row = mysqli_fetch_assoc($result)){
+			$ans = $row['Answer'];
+			$answers[$i++] = $ans;
+		}
+
+		$sql = "select * from $tablename";
+		$result = mysqli_query($conn,$sql);
+		$row = mysqli_num_rows($result);
+		$attempted = new SplFixedArray($row);
+		$i=0;
+		while($row = mysqli_fetch_assoc($result)){
+			$ans = $row['Answer'];
+			$attempted[$i++] = $ans;
+		}
+		$i=0;
+		$marks = 0;
+		foreach($answers as $answer){
+			$a = $i;
+			if($answer === $attempted[$a]){
+				$marks++;
+				$i++;
+			}
+		}
+		
+		$sql = "insert  into result(Sid,Class,examname,result) values ($sid,'$class','$examname',$marks)";
+		mysqli_query($conn,$sql);
+		setcookie('marks',$marks,time() +86400, '/');
+		header('Location: ../pages/student/marks.php');
+		// $sql = "drop table $tablename";
+		// mysqli_query($conn,$sql);
+
 	}
 ?>

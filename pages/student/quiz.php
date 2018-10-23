@@ -58,6 +58,7 @@ input[type="text"]{
     background-color: #123456;
     width:100%;
     height:80px;
+	padding-top:15px;
 }
 #submit{
     margin-top:0px;
@@ -74,9 +75,9 @@ label{
 	<body>
         <header>
             <div id="header">
-                <h2 style="color:white;padding:5px;">Quiz Title: <?php echo $_COOKIE['title']?> </h2>
-                <input id="time" type="time" name="remaining_time " style="float:right">
-                <label  style="color:white;padding:5px;float: right;">Remaining Time:</label>
+                <h2 style="color:white;padding:10px;display:contents;">Quiz Title: <?php echo $_COOKIE['title']?> </h2>
+                <div id='timer' style="float:right;color:white;font-size:35px;margin-right:20px"></div>
+                <label  style="color:white;padding:10px;float: right;font-size:24px;">Remaining Time:</label>
                
             </div>
         </header>
@@ -97,23 +98,28 @@ label{
 					$r = mysqli_query($conn,$sql);
 					
 					$r1= mysqli_fetch_array($r);
-					if(mysqli_num_rows($r)== 0 && $r1['Answer']==""){
+					if(mysqli_num_rows($r)== 0|| $r1['Answer']==""){
 						if($r1['State']== 4){
 							$color='yellow';
+							$c1='black';
 						}
 						else{
 							$color='white';
+							$c1='black';
 						}
 					}else{
 						if($r1['State']== 3){
 							$color='yellow';
+							$c1='black';
 						}
 						else{
 							$color='#123456';
+							$c1='white';
 						}
 					}
 					echo "<input type='submit' name='questionbtn' value='$i' style='width:14% ;height:7%;margin:10px ;
-					background-color:$color;border-radius: 50%;font-size: 10px;border:1px solid #123456;font-weight: bold;font-size:20px;padding:5px;'/>";
+					background-color:$color;border-radius: 50%;font-size: 10px;border:1px solid #123456;font-weight: bold;font-size:20px;
+					padding:5px;color:$c1;'/>";
 				}
 			?>
 			</form>
@@ -203,5 +209,16 @@ label{
 				</div>
 			</form>
 			</section>
+			<script type="text/javascript">
+				setInterval(function()
+				{
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.open("GET","../../includes/timer.php",false);
+					xmlhttp.send(null);
+					document.getElementById('timer').innerHTML=xmlhttp.responseText;
+
+				},1000);
+					
+			</script>
 	</body>
 </html>
