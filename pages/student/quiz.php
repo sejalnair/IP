@@ -97,23 +97,28 @@ label{
 					$r = mysqli_query($conn,$sql);
 					
 					$r1= mysqli_fetch_array($r);
-					if(mysqli_num_rows($r)== 0 && $r1['Answer']==""){
+					if(mysqli_num_rows($r)== 0|| $r1['Answer']==""){
 						if($r1['State']== 4){
 							$color='yellow';
+							$c1='black';
 						}
 						else{
 							$color='white';
+							$c1='black';
 						}
 					}else{
 						if($r1['State']== 3){
 							$color='yellow';
+							$c1='black';
 						}
 						else{
 							$color='#123456';
+							$c1='white';
 						}
 					}
 					echo "<input type='submit' name='questionbtn' value='$i' style='width:14% ;height:7%;margin:10px ;
-					background-color:$color;border-radius: 50%;font-size: 10px;border:1px solid #123456;font-weight: bold;font-size:20px;padding:5px;'/>";
+					background-color:$color;border-radius: 50%;font-size: 10px;border:1px solid #123456;font-weight: bold;font-size:20px;
+					padding:5px;color:$c1;'/>";
 				}
 			?>
 			</form>

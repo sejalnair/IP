@@ -1,6 +1,6 @@
 <?php
 	include 'studentlogin.php';
-	session_start();
+	//session_start();
 	// $class =  $_SESSION['Class'];
 	// echo $class;
 	$subject = 'maths1';
