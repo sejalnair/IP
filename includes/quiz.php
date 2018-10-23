@@ -178,4 +178,5 @@
 		}
 		header('Location: ../pages/student/quiz.php');
 	}
+	
 ?>
