@@ -45,6 +45,7 @@
     <button class="tablink" onclick="openPage('ADDSub', this, '#97025b')"> Add Subject</button>
 </div>
 <div id="ADDT" class="tabcontent">
+    <h5 class="text-center text-success"></h5>
     <form action="../../includes/admin/addt.php" method="POST" >
         <label>Name :</label>
         <input type="text" placeholder="Name" name="name" style="width:370px">
@@ -89,7 +90,7 @@
         <input type="text" style="width:370px" name="password" placeholder="Password">
         <br>
         <br>
-        <input type="submit" value="Submit" id="submit">
+        <input type="submit" value="Submit" name="submit" id="submit">
         <button type="reset" value="Reset" id="reset">Reset</button>
     </form>
 </div>
