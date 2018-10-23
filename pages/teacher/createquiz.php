@@ -134,22 +134,32 @@ h1{
 	margin-right:50px;
 	padding:10px;
 }
+#ot1,#ot2,#ot3,#ot4{
+	width: 30%; 
+	padding:8px; 
+	border:solid 2px #123456;
+}
 
 #btn3:hover {
 	background-color: #f4511e;
 	color: white;
 }
 @media screen and (max-width: 641px) {
+			
             #container{
-                width:100%;
+                width:85%;
+				margin-left:unset;
+				
             }
             #asidebar{
                 width:100%;
-				height:20%;
+				height:10%;
 				
             }
 			#section{
-				width:100%;
+				margin-top:0px;
+				margin-left:10px;
+				width:105%;
 				height:70%;
 			}
 			#btns{
@@ -175,7 +185,7 @@ h1{
 				margin-bottom:20px;
 			}
 			#btn4{
-				width:22%;
+				width:23%;
 				margin-right:0px;
 				
 				
@@ -183,20 +193,24 @@ h1{
 			#choice{
 				width:100%;
 			}
-			
-        }
-
+			#ot1,#ot2,#ot3,#ot4{
+			width: 60%; 
+			}
+			#questions{
+				width:90%;
+			}
+}
 </style>
 
 </head>
-	<body>
+	<body id="container">
 	<div id='head'>
 			<form  action="../../includes/addquestions.php" method="post">
-			<input type="submit" onclick="callme()" name="home" value="Home" id="btn3" >
+			<input type="submit" name="home" value="Home" id="btn3" >
 			</form>
 	</div>
-			<aside>
-				<div >
+			<aside id="asidebar">
+				<div>
 					<h1>Questions </h3><hr style="background-color:red">
 				</div>
 			<form action="../../includes/update.php" method='get'>
@@ -216,7 +230,7 @@ h1{
 			?>
 			</form>
 			</aside>
-			<section>
+			<section id="section">
 			
 				<form action="../../includes/addquestions.php" method="post">
 				<div id="que">
@@ -226,18 +240,18 @@ h1{
 					</div>
 					<div id="choice">
 						<input type="radio" name="option" value="a">
-						<input type="text" name="ot1" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot1" id="ot1"><br><br>
 						<input type="radio" name="option" value="b">
-						<input type="text" name="ot2" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot2" id="ot2"><br><br>
 						<input type="radio" name="option" value="c">
-						<input type="text" name="ot3" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot3" id="ot2"><br><br>
 						<input type="radio" name="option" value="d">
-						<input type="text" name="ot4" style="width: 30%; padding:8px; border:solid 2px #123456;"><br><br>
+						<input type="text" name="ot4" id="ot2" ><br><br>
 					</div>
-					<div>
+					<div id="buttons">
 						<input type="submit" name="addquestion" value="Add Question" id="btn1" >
-						<input type="submit" name="reset" value="Reset" id="btn1">
-						<input type="submit" name="finish" value="Finish" id="btn1" style="float:right;margin-right:50px;">
+						<input type="submit" name="reset" value="Reset" id="btn2">
+						<input type="submit" name="finish" value="Finish" id="btn4" style="float:right;margin-right:50px;">
 						
 					</div>
 				</div>
