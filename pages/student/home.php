@@ -137,8 +137,6 @@
 				margin-top:150px;
 			
 			}
-			
-
 		
 	}
 																								
@@ -165,9 +163,24 @@
 		</div>
 	
 	<section >			
-		<?php 
+		<?php
 			$title =  $_COOKIE['title'];
 			$subtitle = $_COOKIE['subtitle'];
+			if(isset($_COOKIE['edate'])){
+				$date = $_COOKIE['edate'];
+			$time = $_COOKIE['etime'];
+			
+			}
+			// else{
+			// 	echo "not set";
+			// }
+			//$examdate = date('Y-m-d H:i:s', strtotime("$date $time"));
+			
+			// $ctime = date('Y-m-d H:i:s');
+			// $time1 = strtotime($ctime);
+			// $time2 = strtotime($examdate);
+			// $difference = $time1 - $time2;
+			
 			if($title !== " "){
 				echo "<div style='width:75%;float:left;height: 470px;margin-top: 60px;margin-left: 70px;border :solid 5px #720245 ' class='div-animate'>";
 				echo "<br>";
@@ -176,8 +189,8 @@
 				echo "<input type='submit' name='startqz' value='START QUIZ'  style='width:13% ;height:32%;background-color:#123456;color:white;margin-left: 43.5%;margin-top:150px;border-radius: 50%;font-size: 16px;border:0px;'/>";
 				echo "</div>";
 			}else{
-				
-				echo "<center>No Quiz is Present</center></div>";
+				echo "<br><br>";
+				echo "<center style='font-size:26px;'>No Quiz is Present</center></div>";
 			}					
 		?>
 	

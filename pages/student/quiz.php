@@ -58,6 +58,7 @@ input[type="text"]{
     background-color: #123456;
     width:100%;
     height:80px;
+	padding-top:15px;
 }
 #submit{
     margin-top:0px;
@@ -74,9 +75,9 @@ label{
 	<body>
         <header>
             <div id="header">
-                <h2 style="color:white;padding:5px;">Quiz Title: <?php echo $_COOKIE['title']?> </h2>
-                <input id="time" type="time" name="remaining_time " style="float:right">
-                <label  style="color:white;padding:5px;float: right;">Remaining Time:</label>
+                <h2 style="color:white;padding:10px;display:contents;">Quiz Title: <?php echo $_COOKIE['title']?> </h2>
+                <div id='timer' style="float:right;color:white;font-size:35px;margin-right:20px"></div>
+                <label  style="color:white;padding:10px;float: right;font-size:24px;">Remaining Time:</label>
                
             </div>
         </header>
@@ -208,5 +209,16 @@ label{
 				</div>
 			</form>
 			</section>
+			<script type="text/javascript">
+				setInterval(function()
+				{
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.open("GET","../../includes/timer.php",false);
+					xmlhttp.send(null);
+					document.getElementById('timer').innerHTML=xmlhttp.responseText;
+
+				},1000);
+					
+			</script>
 	</body>
 </html>

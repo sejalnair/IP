@@ -27,9 +27,13 @@
 							$a = $row['Tablename'];
 							$a1 = $row['Title'];
 							$a2 = $row['Subtitle'];
+							$a3 = $row['Examdate'];
+							$a4 = $row['ExamTime'];
 							setcookie('examname',$a,time() +86400, '/');
 							setcookie('title',$a1,time() +86400, '/');
 							setcookie('subtitle',$a2,time() +86400, '/');
+							setcookie('edate',$a3,time() +86400, '/');
+							setcookie('etime',$a4,time() +86400, '/');
 							header('Location: ../pages/student/home.php');
 							break;
 						}
@@ -37,6 +41,9 @@
 						setcookie('examname'," ",time() +86400, '/');
 						setcookie('title'," ",time() +86400, '/');
 						setcookie('subtitle'," ",time() +86400, '/');
+						setcookie('edate'," ",time() +86400, '/');
+						setcookie('etime'," ",time() +86400, '/');
+			
 						header('Location: ../pages/student/home.php');
 					}
 					
