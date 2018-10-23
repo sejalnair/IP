@@ -36,11 +36,17 @@
 			}
 		}
 		else{
-			if($res['State']== 2){
+			if(($res['State']== 2 && $ans!="")||$res['State']==1){
 				$q = "Update $qtable set Answer='$ans', State=1 where Question_no=$que_no";
 			}
-			else{
+			elseif($res['State']==2 && $ans == ""){
+				$q = "Update $qtable set Answer='$ans', State=2 where Question_no=$que_no";
+			}
+			elseif(($res['State']==4 && $ans !="")|| $res['State']==3){
 				$q = "Update $qtable set Answer='$ans', State=3 where Question_no=$que_no";
+			}
+			else{
+				$q = "Update $qtable set Answer='$ans', State=4 where Question_no=$que_no";
 			}
 		}
 		
