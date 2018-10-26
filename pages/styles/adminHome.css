@@ -84,15 +84,33 @@ select{
 }
 @media screen and (max-width: 641px) {
     #lo{
+        margin-right:280px;
         float:right;
     }
     #btn-grp{
         width:100%;
     }
     #ADDstu{
-        padding:unset;
+        padding-top:15px;
+        padding-left:20px;
         width:100%
     }
+    label{
+        margin-top:10px;
+    }
+    #ADDT{
+        padding-top:15px;
+        padding-left:20px;
+    }
+    label{
+        margin-top:20px;
+    }
+    #ADDSub{
+        padding-left:20px;
+        padding-top:15px;
+    }
+
+
 }
 
 
