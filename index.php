@@ -102,8 +102,8 @@ a:hover{
 			<img src="images/quiz-zone.png" width="150px" id="img">
 			<nav id="nav">
 				<a href="#">Home</a> 
-				<a href="#">About</a> 
-				<a href="#">Contact</a> 
+				<a href="aboutsus.html">About</a> 
+				<a href="aboutsus.html">Contact</a> 
 				
 			</nav>
 		</div>
