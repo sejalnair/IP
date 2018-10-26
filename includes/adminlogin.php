@@ -10,8 +10,7 @@
 
 			if(mysqli_num_rows($result) > 0){
 				while($row = mysqli_fetch_assoc($result)){
-					$_SESSION['Tid'] = $row['Tid'];
-					$_SESSION['Name'] = $row['Name'];
+					$_SESSION['Aid'] = $row['Aid'];
 					$_SESSION['EmailId'] = $row['EmailId'];
 					$_SESSION['Password'] = $row['Password'];
             

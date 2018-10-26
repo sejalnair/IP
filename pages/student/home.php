@@ -113,7 +113,7 @@
 				margin-top:10px;
 				width:28%;
 				margin-left:30px;
-	
+				cursor: pointer;
 			
 				
 			}
@@ -122,7 +122,7 @@
 				width:25%;
 				margin-left:80px;
 				margin-right:0px;
-			
+				cursor: pointer;
 			}
 			#submit{
 				margin-top:40px;
@@ -151,7 +151,8 @@
 				<label style="margin-left:50px;">Class:</label>
 				<label id="label"><?php echo $_SESSION['Class'];?></label>
 				<input type="button" name="pswd" value="Change_password" class="btn1" style="size: 10px;color:white" />
-				<input type="button" name="logout" value="Logout" class="btn2" style="size: 10px;color:white" />
+				<!-- <input type="button" name="logout" value="Logout" class="btn2" style="size: 10px;color:white" /> -->
+				<button name='logout' class="btn2" style="size: 10px;color:white">Logout</button>
 
 			</div>
 		</header>

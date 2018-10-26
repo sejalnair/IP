@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+    if($_SESSION['Aid'] === null ||  $_SESSION['EmailId'] === null || $_SESSION['Password'] === null){
+        header('Location: ../forbidden.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +40,8 @@
 </head>
 <body>
 <div id="lo">
-    <form action="../../includes/admin/logout.php">
-    <button id="logoutbtn">Logout</button>
+    <form action="../../includes/admin/logout.php" method='post'>
+    <button name='logout' id="logoutbtn">Logout</button>
     </form>
 </div>
 <div class="btn-group">

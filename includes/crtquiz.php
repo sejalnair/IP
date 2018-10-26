@@ -3,7 +3,6 @@
 	//session_start();
 	// $class =  $_SESSION['Class'];
 	// echo $class;
-	$subject = 'maths1';
 	$class = $_COOKIE['class'];
 	if(isset($_POST['maths1'])){
 		$subject = 'maths1';
@@ -84,8 +83,9 @@
 
 		header("Location: ../pages/student/quiz.php");
 	}
-
-	
-	
-
+	if(isset($_POST['logout'])){
+		session_destroy();
+        header('Location: ../index.php');
+        exit;
+	}
 ?>

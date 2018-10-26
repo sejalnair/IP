@@ -26,8 +26,9 @@ use PHPMailer\PHPMailer\Exception;
         //Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Quiz-Zone Login';
-        $mail->Body    = '<h1 align=center>QUIZ-ZONE <br>Email: '.$_COOKIE['emailid'].'</h1>'.'<br><h4>Hello '.$_COOKIE['name'].',<br> You have been successfully authenticated as Teacher with Email-Id: '.$_COOKIE['emailid'].'<br>Your Password is: '.$_COOKIE['password'].' </h4>';
-        
+        $mail->Body = '<h1 align=center>QUIZ-ZONE <br>Email: '.$_COOKIE['emailid'].'</h1>'.'<br><h4>Hello '.$_COOKIE['name'].',<br> You have been successfully authenticated as Teacher with Email-Id: '.$_COOKIE['emailid'].'<br>Your Password is: '.$_COOKIE['password'].' </h4>';
+
+
 
         $mail->send();
         echo 'Message has been sent';
