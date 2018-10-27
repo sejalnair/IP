@@ -4,6 +4,7 @@
 <head>
 <title>Quiz</title>
 <meta charset="UTF-8"/>
+<link rel="icon" href="../../quizicon.png" />
 
 <style type="text/css">
 *{

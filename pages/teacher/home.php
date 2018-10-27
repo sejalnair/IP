@@ -12,6 +12,7 @@
     <title>Quiz Zone (Teacher page)</title>
     <!-- <link rel="stylesheet" type="text/css" href="../styles/teacherHome.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../quizicon.png" />
     <style>
         body{
             color:#fff;

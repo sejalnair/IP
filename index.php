@@ -103,6 +103,17 @@ a:hover{
 	background-color:#720245;
 	opacity:unset;
 }
+#nav{
+	float:right;
+    background:transparent;
+    text-decoration:none;
+    font-size:20px;
+
+}
+#nav > a{
+    padding-right:20px;
+    color:black;
+}
 
 </style>
 </head>
@@ -114,8 +125,7 @@ a:hover{
 			<!-- <img src="images/quiz-zone.png" width="150px" id="img"> -->
 			<nav id="nav">
 				<a href="#">Home</a> 
-				<a href="aboutsus.html">About</a> 
-				<a href="aboutsus.html">Contact</a> 
+				<a href="aboutus.php">About</a> 
 				
 			</nav>
 		</div>

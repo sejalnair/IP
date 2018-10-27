@@ -7,7 +7,6 @@
 	<title>QuizZone | Admin Login</title>
 	<link rel="icon" href="quizicon.png" />
 	<link rel="stylesheet" type="text/css" href="./pages/styles/login.css">
-	
 </head>
 <body>
 	<div id="content"> 

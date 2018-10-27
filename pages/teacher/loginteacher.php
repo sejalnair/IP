@@ -7,6 +7,7 @@
 	<title>QuizZone | Teacher Login</title>
 	<link rel="stylesheet" type="text/css" href="../styles/login.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../../quizicon.png" />
 </head>
 <body>
 	<div id="content"> 

@@ -6,6 +6,7 @@
 <head>
 	<title>QuizZone | Teacher Login</title>
 	<meta charset="UTF-8"/>
+	<link rel="icon" href="../../quizicon.png" />
 	<link rel="stylesheet" type="text/css" href="../styles/login.css">
 </head>
 <body>
