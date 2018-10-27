@@ -12,6 +12,7 @@
     <title>Quiz Zone (Teacher page)</title>
     <!-- <link rel="stylesheet" type="text/css" href="../styles/teacherHome.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../quizicon.png" />
     <style>
         body{
             color:#fff;
@@ -105,6 +106,7 @@
             border-radius: 50%;
             font-size: 16px;
             border:0px;
+            cursor:pointer;
 			}
 
         #oldquiz{
@@ -138,7 +140,41 @@
             transition-duration: 0.4s;
             cursor: pointer;
         }
-        #quizzes:hover {background-color: #720245;}
+        #quizzes:hover {background-color: #720245;
+            color:white;
+        }
+        #curso{
+            color:black;
+            cursor: pointer;
+            
+        }
+        aside {
+        /* background-color: #123456; */
+        height:530px;
+        border:2px solid #123456;
+        overflow:auto
+    }
+    #res{
+        text-align:center;
+        color:black;
+        font-size:28px;
+        margin-top:0px;
+
+    }
+        #viewresult{
+            width:100%;
+            display:inline-block;
+            background-color: white; 
+            color: white;
+            font-size:18px;
+            padding:10px;
+            margin:2px; 
+            background-color:#720245;
+            cursor:pointer
+        } 
+        #viewresult:hover{
+            background-color:#b00379;
+        }
     </style>
 
 </head>
@@ -148,8 +184,8 @@
     <div id="content">
         <header > 
             <label>Name:  <?php echo $_SESSION['Name']?></label>
-                    <button name='changepassword' >Change Password</button>
-                    <button name='logout' >Logout</button>
+                    <button name='changepassword' id='curso'>Change Password</button>
+                    <button name='logout' id='curso' >Logout</button>
                 
         </header>
         <section id="section">
@@ -172,10 +208,62 @@
             <input id="date" type="date" name="exam_date">
         </section>
         <aside id="aside">
-                <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:20px;background-color:#720245;color:white;margin: 5px;" /> 
+                <h1 id='res'>View Result</h1>
+                <!-- <input type="button" name="Sub1" value="History1" style="width:100% ; size: 30px;padding:20px;background-color:#720245;color:white;margin: 5px;" /> 
                 <input type="button" name="Sub2" value="History2" style="width:100% ;size: 30px;padding:20px;background-color:#720245;color:white; margin: 5px;" />
                 <input type="button" name="Sub3" value="History3" style="width:100%;size: 30x;padding:20px;background-color: #720245;color:white;margin: 5px;" />
-                <input type="button" name="Sub4" value="History4" style="width:100% ;size: 30pxs;padding:20px;background-color: #720245;color:white;margin: 5px;" />
+                <input type="button" name="Sub4" value="History4" style="width:100% ;size: 30pxs;padding:20px;background-color: #720245;color:white;margin: 5px;" /> -->
+                <?php 
+                    include '../../includes/dbh.inc.php';
+                    $tid = $_SESSION['Tid'];
+                    $sql = "select * from teacherquiz where Tid = $tid";
+                    $result = mysqli_query($conn,$sql);
+                    if(mysqli_num_rows($result)>0){
+                        while($row = mysqli_fetch_assoc($result)){
+                            $tbname = $row['quizname'];
+                            if(strpos($tbname,'d10') !== false){
+                                $sql = "select * from d10 where Tablename = '$tbname'";
+                                $res = mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($res)>0){
+                                    while($rowi = mysqli_fetch_assoc($res)){
+                                        $title = $rowi['Title'];
+                                        $subtitle = $rowi['Subtitle'];
+                                        $class = $rowi['Class'];
+                                        $examdate = $rowi['Examdate'];
+                                        echo "<button id='viewresult' name='result' value='$tbname'>Class : $class <br>Title : $title</button><br>";
+                                    }
+                                }
+                            }
+                            else if(strpos($tbname,'d15') !== false){
+                                $sql = "select * from d15 where Tablename = '$tbname'";
+                                $res = mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($res)>0){
+                                    while($rowi = mysqli_fetch_assoc($res)){
+                                        $title = $rowi['Title'];
+                                        $subtitle = $rowi['Subtitle'];
+                                        $class = $rowi['Class'];
+                                        $examdate = $rowi['Examdate'];
+                                        echo "<button id='viewresult' name='result' value='$tbname'>Class : $class <br>Title : $title</button><br>";
+                                    }
+                                }
+                            }
+                            else{
+                                $sql = "select * from d20 where Tablename = '$tbname'";
+                                $res = mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($res)>0){
+                                    while($rowi = mysqli_fetch_assoc($res)){
+                                        $title = $rowi['Title'];
+                                        $subtitle = $rowi['Subtitle'];
+                                        $class = $rowi['Class'];
+                                        $examdate = $rowi['Examdate'];
+                                        echo "<button id='viewresult' name='result' value='$tbname'>Class : $class <br>Title : $title</button><br>";
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                ?>
         </aside>
         <div style="height:450px;">
 
@@ -190,7 +278,7 @@
     </form>
     <div id='oldquiz'>
         <h2>Previous Created Quiz</h1>
-        <form action="../../includes/display.php" method="post">
+        <form action="../../includes/display.php" method="post" autocomplete="on">
         <?php 
             include '../../includes/dbh.inc.php';
             $tid =  $_SESSION['Tid'];

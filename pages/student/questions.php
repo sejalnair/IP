@@ -10,6 +10,7 @@
 <title>Quiz</title>
 <meta charset="UTF-8"/>
 <link rel="stylesheet" type="text/css" href="../styles/stuque.css">
+<link rel="icon" href="../../quizicon.png" />
 
 </head>
 	<body>

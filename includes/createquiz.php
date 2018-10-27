@@ -40,4 +40,9 @@
         header('Location: ../index.php');
         exit;
 	}
+	if(isset($_POST['result'])){
+		$tablename = $_POST['result'];
+		setcookie('result',$tablename,time() +86400, '/');
+		header("Location: ../pages/teacher/result.php");
+	}
 ?>

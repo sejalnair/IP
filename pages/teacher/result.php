@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="../../quizicon.png" />
-    <title><?php echo $_COOKIE['displaytable']; ?></title>
+    <title>Result</title>
     <style>
     table {
         border-collapse: collapse;
@@ -39,34 +39,31 @@
     </form>
     <table>
     <tr>
-        <th>Question no</th>
-        <th>Question</th>
-        <th>Choice 1</th>
-        <th>Choice 2</th>
-        <th>Choice 3</th>
-        <th>Choice 4</th>
-        <th>Answer</th>
+        <th>Sr no.</th>
+        <th>Sid</th>
+        <th>Class</th>
+        <th>Marks Scored</th>
+        <th>Out of</th>
     </tr>
-        <form method='post' action='../../includes/update.php'>
         <?php 
             include '../../includes/dbh.inc.php';
-            $tablename = $_COOKIE['displaytable'];
-            $sql = "select * from $tablename;";
+            $tablename = $_COOKIE['result'];
+            $sql = "select * from result where examname = '$tablename';";
+            $sql1 = "select count(*) from $tablename;";
+            $res = mysqli_query($conn,$sql1);
+            $outof = mysqli_fetch_array($res);
+            
             $result = mysqli_query($conn,$sql);
-            if(mysqli_num_rows($result)>0){
+            if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_assoc($result)){
-                    $quest_no = $row['Question_no'];
-                    $quest = $row['Question'];
-                    $c1 = $row['C1'];
-                    $c2 = $row['C2'];
-                    $c3 = $row['C3'];
-                    $c4 = $row['C4'];
-                    $ans = $row['Answer'];
-                    echo "<tr> <td>$quest_no</td><td>$quest</td><td>$c1</td><td>$c2</td><td>$c3</td><td>$c4</td><td>$ans</td><td><button type='submit' id='edit' value='$quest_no' name='quest_no'>Edit</button></td></tr>";
+                    $srno = $row['Id'];
+                    $sid = $row['Sid'];
+                    $class = $row['Class'];
+                    $marks = $row['result'];
+                    echo "<tr> <td>$srno</td><td>$sid</td><td>$class</td><td>$marks</td><td>$outof[0]</td></tr>";
                 }
             }
         ?>
-        </form>
     </table>
 
 </body>

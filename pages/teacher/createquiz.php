@@ -11,6 +11,7 @@
 <title>Add Questions</title>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../../quizicon.png" />
 <style type="text/css">
 aside {
 	/* background-color: #123456; */
