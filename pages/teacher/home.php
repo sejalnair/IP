@@ -139,7 +139,9 @@
             transition-duration: 0.4s;
             cursor: pointer;
         }
-        #quizzes:hover {background-color: #720245;}
+        #quizzes:hover {background-color: #720245;
+            color:white;
+        }
         #curso{
             color:black;
             cursor: pointer;
@@ -162,15 +164,15 @@
             width:100%;
             display:inline-block;
             background-color: white; 
-            color: black; 
+            color: white;
             font-size:18px;
             padding:10px;
             margin:2px; 
-            background-color:#f4511e;
+            background-color:#720245;
             cursor:pointer
         } 
         #viewresult:hover{
-            background-color:#f4545e;
+            background-color:#b00379;
         }
     </style>
 
