@@ -53,15 +53,15 @@ session_start();
     <h5 class="text-center text-success"></h5>
     <form action="../../includes/admin/addt.php" method="POST" >
         <label>Name :</label>
-        <input type="text" placeholder="Name" name="name" style="width:370px">
+        <input type="text" placeholder="Name" name="name" style="width:370px" required />
         <br>
         <br>
         <label>Email ID :</label>
-        <input type="text" placeholder="Email" name="emailid" style="width:370px">
+        <input type="email" placeholder="Email" name="emailid" style="width:370px" required />
         <br>
         <br>
         <label>Password :</label>
-        <input type="text" style="width:370px" name="password" placeholder="Password">
+        <input type="text" style="width:370px" name="password" placeholder="Password" required />
         <br>
         <br>
         <input type="submit" value="Submit" id="submit">
@@ -71,7 +71,7 @@ session_start();
 <div id="ADDstu" class="tabcontent">
     <form action="../../includes/admin/addstu.php" method="POST" >
         <label>Name :</label>
-        <input type="text" placeholder="First name" name="fname"> 
+        <input type="text" placeholder="First name" name="fname" required /> 
         <input type="text" placeholder="Last name" name="lname">
         <br>
         <br>
@@ -80,11 +80,12 @@ session_start();
         <br>
         <br>
         <label>Class :</label>
-        <select  name="class">
+        <input list="class" name="class" placeholder="Class">
+        <datalist  id="class">
             <option value="D10">D10</option>
             <option value="D15">D15</option>
             <option value="D20">D20</option>
-        </select>
+        </datalist>
         <br>
         <br>
         <label>Email ID :</label>
@@ -106,11 +107,12 @@ session_start();
         <br>
         <br>
         <label>Class :</label>
-        <select  name="class">
+        <input list="class" name="class" placeholder="Class">
+        <datalist  id="class">
             <option value="D10">D10</option>
             <option value="D15">D15</option>
             <option value="D20">D20</option>
-        </select>
+        </datalist>
         <br>
         <br>
         <label>Teacher's Name :</label>

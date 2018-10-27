@@ -277,7 +277,7 @@
     </form>
     <div id='oldquiz'>
         <h2>Previous Created Quiz</h1>
-        <form action="../../includes/display.php" method="post">
+        <form action="../../includes/display.php" method="post" autocomplete="on">
         <?php 
             include '../../includes/dbh.inc.php';
             $tid =  $_SESSION['Tid'];
