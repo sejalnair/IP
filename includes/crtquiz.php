@@ -7,26 +7,28 @@
 	if(isset($_POST['maths1'])){
 		$subject = 'maths1';
 		setcookie('subject',$subject,time() +86400, '/');
+		$sql = "select * from $class where Subject= '$subject'";
+		$result = mysqli_query($conn,$sql);
 	}
 	if(isset($_POST['dsa'])){
 		$subject='dsa';
 		setcookie('subject',$subject,time() +86400, '/');
+		$sql = "select * from $class where Subject= '$subject'";
+		$result = mysqli_query($conn,$sql);
+		
 	}
 	if(isset($_POST['ld'])){
 		$subject='ld';
 		setcookie('subject',$subject,time() +86400, '/');
+		$sql = "select * from $class where Subject= '$subject'";
+		$result = mysqli_query($conn,$sql);
 	}
 	if(isset($_POST['dbms'])){
 		$subject='dbms';
 		setcookie('subject',$subject,time() +86400, '/');
+		$sql = "select * from $class where Subject= '$subject'";
+		$result = mysqli_query($conn,$sql);
 	}
-	
-	if($_COOKIE['subject']){
-		$subject = $_COOKIE['subject'];
-	}
-	$sql = "select * from $class where Subject= '$subject'";
-	$result = mysqli_query($conn,$sql);
-	
 	if(mysqli_num_rows($result)>0 ){
 		while($row = mysqli_fetch_assoc($result)){
 			$a = $row['Tablename'];
@@ -53,11 +55,12 @@
 			}
 			
 		}
-	}else if(mysqli_num_rows($result) === 0 ) {
-		setcookie('examname'," ",time() +86400, '/');
+	}
+	else{
+		// setcookie('examname'," ",time() +86400, '/');
 		setcookie('title'," ",time() +86400, '/');
 		setcookie('subtitle'," ",time() +86400, '/');
-		setcookie('qtablename'," ",time() +86400, '/');
+		// setcookie('qtablename'," ",time() +86400, '/');
 		header('Location: ../pages/student/home.php');
 	}
 	
@@ -88,4 +91,5 @@
         header('Location: ../index.php');
         exit;
 	}
+	//header('Location: ../pages/student/home.php');
 ?>
