@@ -125,10 +125,10 @@ a:hover{
 			<div class="background"></div>
 			<!-- <img src="images/backgrnd.jpg" width="100%" id="img2"> -->
 			<div class="teacher">
-            	<a id="teacher" value="Teacher" name="btn" href="pages/teacher/loginTeacher.php">Login as Teacher</a>
+            	<a id="teacher" value="Teacher" name="btn" href="pages/teacher/loginTeacher.php">Teacher Login</a>
 			</div>
 			<div>
-            	<a id="student" value="Student" name="btn" href="pages/student/loginStudent.php">Login as Student</a>
+            	<a id="student" value="Student" name="btn" href="pages/student/loginStudent.php">Student Login</a>
 			</div>
 			<div style="height:100%;padding:115px"></div>
 		</div>
