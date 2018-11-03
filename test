@@ -1,0 +1,8 @@
+<script type="text/javascript">
+		function loadfunction(){
+			<?php
+			setcookie('title'," ",time() +86400, '/');
+			setcookie('subtitle'," ",time() +86400, '/');
+			?>
+		}
+	</script>
